@@ -5,7 +5,6 @@ import connectDB from '../../components/utils/connectDB';
 
 
 const LoginPage: FunctionComponent = () => {
-  
   useEffect (()=>{
     connectDB();
   }, [])
