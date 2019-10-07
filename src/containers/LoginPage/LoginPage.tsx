@@ -1,13 +1,8 @@
 import React, { FunctionComponent, useEffect } from 'react';
 import LoginForm from '../../components/LoginForm/LoginForm';
-import connectDB from '../../components/utils/connectDB';
 
-
-
-const LoginPage: FunctionComponent = () => {
-  useEffect (()=>{
-    connectDB();
-  }, [])
+const LoginPage = () => {
+  
   
   return(
       <div className="login-page">

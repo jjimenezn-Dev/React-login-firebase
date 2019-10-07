@@ -1,29 +1,23 @@
-import {observable, } from "mobx";
+import { observable, computed, action } from "mobx";
 import * as firebase from 'firebase';
-import config from "../components/utils/firebaseCredentials";
+import { config } from "../components/utils/firebaseCredentials";
+import { createContext } from "react";
 
-class firebaseStore {
-	connections: any = [];
+class fireConnection {
+	@observable connections:any;
+	@observable fireAuth:any = [];
 
-	@observable
-	get completedTodosCount() {
-    	return this.connections.filter().length;
-    }
-
-	report() {
-		if (this.connections.length === 0)
-			return "Upsi";
-		return `Next todo: "${this.connections[0].task}". ` +
-			`Progress: ${this.completedTodosCount}/${this.connections.length}`;
+	@action addConnection() {
+		this.connections = firebase.initializeApp(config);
+		return this.connections;
 	}
 
-    addTodo() {
-		if(this.connections.length === 0){
-			this.connections.push( firebase.initializeApp(config));
-		}
+	@action addAuth() {
+		this.fireAuth.push(this.connections.auth());
+		return this.fireAuth;
 	}
 }
 
-const fireConnection = new firebaseStore();
+const firebaseStore = createContext(new fireConnection());
 
-export default fireConnection;
+export default firebaseStore;

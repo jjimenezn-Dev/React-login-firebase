@@ -1,0 +1,42 @@
+.home-page{
+    width: 100%;
+    height: 100%;
+}
+
+.home-page ul{
+    color: $light;
+    //font-style: italic;
+}
+.home-page .menu-button{
+    height: auto;
+    padding: 5px 15px;
+    font-size: 0.8rem;
+}
+
+.home-page .menu-button2{
+    height: auto;
+    padding: 5px 15px;
+    font-size: 0.8rem;
+    color:$lightGrey;
+    font-weight: bolder;
+}
+
+.home-page .menu-button:hover{
+    cursor: pointer;
+    background-color: $dark;
+}
+
+.home-page .menu-button2:hover{
+    cursor: pointer;
+    color: $dark;
+}
+
+.welcome-message{
+    border-bottom: solid 1.5px $dark;
+    margin: 10px 30px;
+}
+
+.sub-tittle{    
+    cursor: vertical-text;
+    color: $light;
+}

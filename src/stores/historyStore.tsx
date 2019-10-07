@@ -1,29 +1,14 @@
 import {observable, } from "mobx";
 import { createBrowserHistory } from "history";
+import { createContext } from "react";
 
 class historyStore {
-	history: any = [];
-
-	@observable
-	get completedTodosCount() {
-    	return this.history.filter().length;
-    }
-
-	report() {
-		if (this.history.length === 0)
-			return "Upsi";
-		return `Next todo: "${this.history[0].task}". ` +
-			`Progress: ${this.completedTodosCount}/${this.history.length}`;
-	}
-
-    addTodo() {
-		if(this.history.length === 0){
-			let historyValue = createBrowserHistory();
-			this.history.push(historyValue);
-		}
+	@observable	history:any;
+	constructor(){
+		this.history = createBrowserHistory()
 	}
 }
 
-const historyStored = new historyStore();
+const historyStored = createContext(new historyStore());
 
 export default historyStored;

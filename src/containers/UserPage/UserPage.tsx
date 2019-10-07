@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 
-const Home: FunctionComponent = () => {
+const UserPage: FunctionComponent = () => {
 
     return (
         <div>
@@ -9,4 +9,4 @@ const Home: FunctionComponent = () => {
     );
 }
 
-export default Home;
+export default UserPage;
