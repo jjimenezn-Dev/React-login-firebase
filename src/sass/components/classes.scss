@@ -1,0 +1,133 @@
+.classes_style {
+    margin-top: 30px;
+    ul{
+        margin: 0 20px!important;
+    }
+.oth-large{
+    color: $dark;
+    font-weight: 500;
+    margin-top: 1%;
+}
+  .oth-bar:hover {
+    box-shadow: 0 0 12px $dark;
+    cursor: pointer;
+  }
+  .oth-bar-item {
+    color: $dark;
+    font-weight: 500;
+    margin-top: 1%;
+  }
+  .oth-hoverable tbody tr:hover,
+  .oth-ul.oth-hoverable li:hover {
+    background-color: #ccc;
+  }
+  .oth-centered tr th,
+  .oth-centered tr td {
+    text-align: center;
+  }
+  .oth-ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  .oth-ul li {
+    padding: 30px 16px;
+    border-bottom: 1px solid #ddd;
+  }
+  .oth-ul li:last-child {
+    border-bottom: none;
+  }
+  .oth-card-4,
+  .oth-hover-shadow:hover {
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2),
+      0 4px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  .oth-bar-block .oth-dropdown-hover,
+  .oth-bar-block .oth-dropdown-click {
+    width: 100%;
+  }
+  .oth-bar-block .oth-dropdown-hover .oth-dropdown-content,
+  .oth-bar-block .oth-dropdown-click .oth-dropdown-content {
+    min-width: 100%;
+  }
+  .oth-bar-block .oth-dropdown-hover .oth-button,
+  .oth-bar-block .oth-dropdown-click .oth-button {
+    width: 100%;
+    text-align: left;
+    padding: 8px 16px;
+  }
+  .oth-bar {
+    width: 100%;
+    overflow: hidden;
+  }
+  .oth-center .oth-bar {
+    display: inline-block;
+    width: auto;
+  }
+  .oth-bar .oth-bar-item {
+    padding: 8px 16px;
+    float: left;
+    display: block;
+    outline: 0;
+  }
+  .oth-bar .oth-dropdown-hover,
+  .oth-bar .oth-dropdown-click {
+    position: static;
+    float: left;
+  }
+  .oth-bar .oth-button {
+    white-space: normal;
+  }
+  .oth-bar-block .oth-bar-item {
+    width: 100%;
+    display: block;
+    padding: 8px 16px;
+    text-align: left;
+    border: none;
+    white-space: normal;
+    float: none;
+    outline: 0;
+  }
+  .oth-bar-block.oth-center .oth-bar-item {
+    text-align: center;
+  }
+  .oth-block {
+    display: block;
+    width: 100%;
+  }
+  .oth-circle {
+    border-radius: 50%;
+  }
+  .oth-bar .roman {
+    border: solid 2px #000;
+    height: 60px;
+    width: 60px;
+    text-align: center;
+    font-size: 1.5rem;
+    margin: 1%;
+    padding: 9px 0;
+    user-select: none;
+  }
+  .status-success {
+      width: 120px;
+      text-align: center;
+      border-radius: 50%;
+      border: solid 1px lightgreen; 
+      padding: 8px;
+    margin: 0 10px;
+    float: right;
+    color: lightgreen;
+    font-weight: bolder;
+  }
+  .status-pending {
+    width: 120px;
+    text-align: center;
+    border-radius: 50%;
+    border: solid 1px red; 
+    padding: 8px;
+    margin: 0 10px;
+    float: right;
+    color: red;
+    font-weight: bolder;
+  }
+}

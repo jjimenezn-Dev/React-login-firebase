@@ -43,7 +43,8 @@ h4{
 
 .content {
     background-color: white;
-    min-height: calc(100vh - 50px);
+    min-height: calc(100vh - 50px)!important;
+    padding: 0;
 }
 
 ul{
@@ -54,6 +55,7 @@ ul{
     background-color: $primary;
     margin: 0;
     padding: 0;
+    height: 95vh;
 }
 
 li{
@@ -71,3 +73,23 @@ a{
     color: $light;
 }
   
+.element{
+    overflow-x: hidden!important;
+}
+
+.right{
+    float: right;
+}
+
+.logo_img{
+    margin: 10px auto;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    padding: 10px;
+    box-shadow: 0 0 8px $dark;    
+    background-color: white;
+    img{
+        width: 100px;
+    }
+}

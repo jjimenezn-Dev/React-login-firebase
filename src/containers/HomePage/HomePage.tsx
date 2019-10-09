@@ -8,17 +8,19 @@ import UserMenu from '../../components/Menu/UserMenu';
 import AdminMenu from '../../components/Menu/AdminMenu';
 import { observer } from 'mobx-react-lite';
 import { toJS } from 'mobx';
+import ClassesPage from '../ClassesPage/ClassesPage';
+import logo from '../../assets/images/logo.png';
 
 const HomePage = observer(() => {
-  const HistoryContextStore = useContext(historyStored);  
-  const firebaseContextStore = useContext(firebaseStore); 
+  const HistoryContextStore = useContext(historyStored);
+  const firebaseContextStore = useContext(firebaseStore);
 
   useEffect(() => {
     console.log(toJS(firebaseContextStore.fireAuth));
-    
-    if(!firebaseContextStore.fireAuth){
+
+    if (!firebaseContextStore.fireAuth) {
       HistoryContextStore.history.push("/");
-      //HistoryContextStore.history.go();
+      HistoryContextStore.history.go();
     }
   }, [])
 
@@ -28,21 +30,24 @@ const HomePage = observer(() => {
       <Container>
         <Row>
           <Col className="Menu" md={2}>
+            <div className="logo_img">
+              <img src={logo} alt="" />
+            </div>
             <div className="ligh-font">
               <h3>Bienvenido</h3> <h4>{"Juan Pepito Perez"}</h4>
             </div>
             <div className="welcome-message"></div>
-            <AdminMenu/>
-            <UserMenu/>            
+            <AdminMenu />
+            <UserMenu />
           </Col>
           <Col className="content" md={10}>
             <div>
-            <Router>
-              <Route path="/home" exact component={Home} />
-              <Route path="/cursos" exact component={Home} />
-              <Route path="/usuario" exact component={Home} />
-              <Route path="/usuarios" exact component={Home} />
-            </Router>
+              <Router>
+                <Route path="/home" exact component={Home} />
+                <Route path="/cursos" exact component={ClassesPage} />
+                <Route path="/usuario" exact component={Home} />
+                <Route path="/usuarios" exact component={Home} />
+              </Router>
             </div>
           </Col>
         </Row>

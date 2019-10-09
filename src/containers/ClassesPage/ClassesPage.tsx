@@ -1,10 +1,18 @@
 import React, { FunctionComponent } from 'react';
+import Classes from '../../components/Classes/Classes';
 
 const ClassesPage: FunctionComponent = () => {
+    const curso: string = "curso de manejo defensivo";
 
     return (
-        <div>
-            home
+        <div className="classes_page">
+            <div className="class_banner">
+                <h1>{curso}</h1>
+                <h3 className="curse_name">Modulos de curso</h3>
+            </div>
+            <div>
+                <Classes />
+            </div>
         </div>
     );
 }
