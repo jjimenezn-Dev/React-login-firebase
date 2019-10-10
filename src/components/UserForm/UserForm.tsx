@@ -1,6 +1,6 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 
-const UserForm: FunctionComponent = () => {
+const UserForm: React.FC = () => {
 
     return (
         <div>

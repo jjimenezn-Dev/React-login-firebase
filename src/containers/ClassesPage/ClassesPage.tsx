@@ -1,7 +1,7 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 import Classes from '../../components/Classes/Classes';
 
-const ClassesPage: FunctionComponent = () => {
+const ClassesPage: React.FC = () => {
     const curso: string = "curso de manejo defensivo";
 
     return (

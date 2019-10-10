@@ -1,15 +1,15 @@
-import React, { FunctionComponent, useContext } from "react";
+import React, { useContext } from "react";
 import { observer } from "mobx-react";
 import historyStored from "../../stores/historyStore";
 
-const Card: FunctionComponent = observer(() => {
+const Card: React.FC = observer(() => {
     const HistoryContextStore = useContext(historyStored);
 
     const time:string = "9";
     const curse_name:string = "curso de manejo defensivo";
 
     function handleCardClick(event:any){
-        HistoryContextStore.history.push("/cursos");
+        HistoryContextStore.history.push("/home");
         HistoryContextStore.history.go();
     }
 
@@ -25,13 +25,13 @@ const Card: FunctionComponent = observer(() => {
 
                     </div>
                     <div className="card__img"></div>
-                    <a href="#" className="card_link">
+                    <div className="card_link">
                         <div className="card__img--hover"></div>
-                    </a>
+                    </div>
                     <div className="card__info">
                         <span className="card__category"> Curso</span>
                         <h3 className="card__title">{curse_name}</h3>
-                        <span className="card__by">Por <a href="#" className="card__author" title="author">SCA Soluciones</a></span>
+                        <span className="card__by">Por <a href="http://18.188.57.98/" className="card__author" title="author">SCA Soluciones</a></span>
                     </div>
                 </article>
             </section>

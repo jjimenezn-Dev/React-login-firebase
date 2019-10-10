@@ -1,7 +1,7 @@
-import React, { FunctionComponent, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import LoginForm from '../../components/LoginForm/LoginForm';
 
-const LoginPage = () => {
+const LoginPage:React.FC = () => {
   
   
   return(

@@ -114,7 +114,7 @@
       border-radius: 50%;
       border: solid 1px lightgreen; 
       padding: 8px;
-    margin: 0 10px;
+    margin: auto;
     float: right;
     color: lightgreen;
     font-weight: bolder;
@@ -125,9 +125,17 @@
     border-radius: 50%;
     border: solid 1px red; 
     padding: 8px;
-    margin: 0 10px;
+    margin: auto;
     float: right;
     color: red;
     font-weight: bolder;
+    float: right;
+  }
+  .col-md-auto{
+    margin: auto!important;
+    width: 90px;
+  }
+  .col{
+    margin: auto!important;
   }
 }

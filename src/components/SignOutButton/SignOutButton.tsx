@@ -10,11 +10,12 @@ const SignOutButton = observer(() => {
 
   function onCLickHandler (){
     let returned = firebaseContextStore.fireAuth.doSignOut;
-    HistoryContextStore.history.pop();
+    HistoryContextStore.history.push("/");
+    HistoryContextStore.history.go();
   }
 
   return (
-    <button type="button" onClick={onCLickHandler}>
+    <button className="logout_button" type="button" onClick={onCLickHandler}>
       Desconectarse
     </button>
   );

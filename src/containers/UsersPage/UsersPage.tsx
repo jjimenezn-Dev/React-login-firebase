@@ -1,6 +1,6 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 
-const UsersPage: FunctionComponent = () => {
+const UsersPage: React.FC = () => {
 
     return (
         <div>

@@ -1,12 +1,12 @@
 import React from 'react';
 
-const UserPage: React.FC = () => {
+const Module6: React.FC = () => {
 
     return (
         <div>
-            home
+            
         </div>
     );
 }
 
-export default UserPage;
+export default Module6;

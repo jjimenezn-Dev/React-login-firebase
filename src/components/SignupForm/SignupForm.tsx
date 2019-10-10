@@ -1,6 +1,6 @@
-import React, { FunctionComponent, useState } from 'react';
+import React, { useState } from 'react';
 
-const SignupForm = () => {
+const SignupForm:React.FC = () => {
     const [localState, setLocalState] = useState({username:"", password:""});
 
     function handleLoginClick(event:any) {

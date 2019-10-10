@@ -31,6 +31,12 @@ const App = observer(() => {
             <Route path="/" exact component={LoginPage} />
             <Route path="/home" exact component={HomePage} />
             <Route path="/cursos" exact component={HomePage} />
+            <Route path="/moduloI" exact component={HomePage} />
+            <Route path="/moduloII" exact component={HomePage} />
+            <Route path="/moduloIII" exact component={HomePage} />
+            <Route path="/moduloIV" exact component={HomePage} />
+            <Route path="/moduloI" exact component={HomePage} />
+            <Route path="/moduloVI" exact component={HomePage} />
             <Route path="/usuario" exact component={HomePage} />
             <Route path="/usuarios" exact component={HomePage} />
             <Route path="/signup" exact component={SignupForm} />

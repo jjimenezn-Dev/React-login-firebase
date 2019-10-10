@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import { observer } from 'mobx-react-lite';
 import historyStored from '../../stores/historyStore';
 import firebaseStore from '../../stores/firebaseStore';

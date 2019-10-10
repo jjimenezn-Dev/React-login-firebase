@@ -1,8 +1,8 @@
-import React, { FunctionComponent, useState, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import historyStored from '../../stores/historyStore';
 import { observer } from 'mobx-react-lite';
 
-const ResetPassword: FunctionComponent = observer(() => {
+const ResetPassword: React.FC = observer(() => {
     const HistoryContextStore = useContext(historyStored);  
 
     const [localState, setLocalState] = useState({username:"", password:""});

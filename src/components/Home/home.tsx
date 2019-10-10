@@ -1,10 +1,10 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 import Card from '../usables/card';
 import { Container, Row, Col } from 'react-bootstrap';
 import Scroll from 'react-scroll';
 
 
-const Home: FunctionComponent = () => {
+const Home: React.FC = () => {
     var Element:any = Scroll.Element;
     return (
 
