@@ -35,7 +35,7 @@ const App = observer(() => {
             <Route path="/moduloII" exact component={HomePage} />
             <Route path="/moduloIII" exact component={HomePage} />
             <Route path="/moduloIV" exact component={HomePage} />
-            <Route path="/moduloI" exact component={HomePage} />
+            <Route path="/moduloV" exact component={HomePage} />
             <Route path="/moduloVI" exact component={HomePage} />
             <Route path="/usuario" exact component={HomePage} />
             <Route path="/usuarios" exact component={HomePage} />
