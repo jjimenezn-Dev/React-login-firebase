@@ -42,6 +42,12 @@ const App = observer(() => {
             <Route path="/signup" exact component={SignupForm} />
             <Route path="/RecoverPass" exact component={ResetPassword} />
             <Route path="/RecoverPass/reset" exact component={ChangePassword} />
+            <Route path="/quiz1" exact component={HomePage} />
+            <Route path="/quiz2" exact component={HomePage} />
+            <Route path="/quiz3" exact component={HomePage} />
+            <Route path="/quiz4" exact component={HomePage} />
+            <Route path="/quiz5" exact component={HomePage} />
+            <Route path="/quiz6" exact component={HomePage} />
           </Router>
         </Provider>
       </header>

@@ -1,0 +1,31 @@
+.quiz_container {
+  .question {
+    color: $dark;
+    font-size: 3rem;
+  }
+  .aswer {
+    width: 80%;
+    background-color: $light;
+    border-radius: 50px;
+    text-align: left;
+    padding-left: 50px;
+    color: $dark;
+  }
+  .aswer:hover {
+    background-color: $primary;
+    color: $light;
+  }
+  .quiz_area {
+      margin: 5vh;
+  }
+  .total_correct {
+    display: none;
+  }
+  .total_Incorrect {
+    display: none;
+  }
+  .score_area {
+  }
+  .class_banner {
+  }
+}

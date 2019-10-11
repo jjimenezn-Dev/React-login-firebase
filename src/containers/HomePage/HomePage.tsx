@@ -11,13 +11,18 @@ import { toJS } from 'mobx';
 import ClassesPage from '../ClassesPage/ClassesPage';
 import logo from '../../assets/images/logo.png';
 import SignOutButton from '../../components/SignOutButton/SignOutButton';
-import ModulePage from '../ModulePage/ModulePage';
 import Module1 from '../../components/Module/Module1';
 import Module2 from '../../components/Module/Module2';
 import Module3 from '../../components/Module/Module3';
 import Module4 from '../../components/Module/Module4';
 import Module5 from '../../components/Module/Module5';
 import Module6 from '../../components/Module/Module6';
+import Quiz1 from '../../components/Quiz/Quiz1';
+import Quiz2 from '../../components/Quiz/Quiz2';
+import Quiz3 from '../../components/Quiz/Quiz3';
+import Quiz4 from '../../components/Quiz/Quiz4';
+import Quiz5 from '../../components/Quiz/Quiz5';
+import Quiz6 from '../../components/Quiz/Quiz6';
 
 const HomePage: React.FC = observer(() => {
   const HistoryContextStore = useContext(historyStored);
@@ -72,6 +77,12 @@ const HomePage: React.FC = observer(() => {
                 <Route path="/moduloVI" exact component={Module6} />
                 <Route path="/usuario" exact component={Home} />
                 <Route path="/usuarios" exact component={Home} />
+                <Route path="/quiz1" exact component={Quiz1} />
+                <Route path="/quiz2" exact component={Quiz2} />
+                <Route path="/quiz3" exact component={Quiz3} />
+                <Route path="/quiz4" exact component={Quiz4} />
+                <Route path="/quiz5" exact component={Quiz5} />
+                <Route path="/quiz6" exact component={Quiz6} />
               </Router>
             </div>
           </Col>

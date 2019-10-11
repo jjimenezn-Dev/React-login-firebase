@@ -1,14 +1,44 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import ReactPlayer from 'react-player';
 import Scroll from 'react-scroll';
 import { IoIosCheckmarkCircle } from 'react-icons/io';
+import historyStored from '../../stores/historyStore';
 
 const Module4: React.FC = () => {
+    const HistoryContextStore = useContext(historyStored);
     var Element: any = Scroll.Element;
     const [localState, setLocalState] = useState({1:{active:true}, 2:{active:true}, 3:{active:true}, 4:{active:true}, 5:{active:true}, 6:{active:true}, 7:{active:true}, 8:{active:true}, 9:{active:true}});
     
     function handlerClickAcordion(event: any) {
+        let id: number = event.target.id;
+        if (id == 1) {
+            setLocalState({ ...localState, 1: { active: true } });
+        }
+        if (id == 2) {
+            setLocalState({ ...localState, 2: { active: true } });
+        }
+        if (id == 3) {
+            setLocalState({ ...localState, 3: { active: true } });
+        }
+        if (id == 4) {
+            setLocalState({ ...localState, 4: { active: true } });
+        }
+        if (id == 5) {
+            setLocalState({ ...localState, 5: { active: true } });
+        }
+        if (id == 6) {
+            setLocalState({ ...localState, 6: { active: true } });
+        }
+        if (id == 7) {
+            setLocalState({ ...localState, 7: { active: true } });
+        }
+        if (id == 8) {
+            setLocalState({ ...localState, 8: { active: true } });
+        }
+        if (id == 9) {
+            setLocalState({ ...localState, 9: { active: true } });
+        }
         if (event.target.nextElementSibling.children[0] && event.target.nextElementSibling.children[0].className == "active") {
             event.target.nextElementSibling.children[0].className = "panel";
         }
@@ -16,15 +46,21 @@ const Module4: React.FC = () => {
             event.target.nextElementSibling.children[0].className = "active";
         }
     }
-
     function handlerClickQuiz(event: any) {
-        
+        if (localState[1].active && localState[2].active && localState[3].active && localState[4].active && localState[5].active && localState[6].active && localState[7].active&& localState[8].active&& localState[9].active) {
+            HistoryContextStore.history.push("/quiz4");
+            HistoryContextStore.history.go();
+        }
+        else {
+            alert("Completa todos los videos para activar el quiz.");
+        }
+
     }
     
     return (
         <div className="module">
             <div className="class_banner">
-                <h1>Modulo 1</h1>
+                <h1>Modulo 4</h1>
             </div>
             <Element className="element" id="containerElement" style={{
                 position: 'relative',
@@ -33,7 +69,7 @@ const Module4: React.FC = () => {
             }}>
                 <Container>
                     <Row>
-                        <Col onClick={handlerClickAcordion} className="accordion" md={12}>video 1 {localState[1].active? <IoIosCheckmarkCircle/>: ""}</Col>
+                        <Col id={"1"} onClick={handlerClickAcordion} className="accordion" md={12}>video 1 {localState[1].active? <IoIosCheckmarkCircle/>: ""}</Col>
                         <Col md={12}>
                             <div className="panel">
                                 <ReactPlayer url='www.youtube.com/watch?v=MsKRVzmOOoQ' />
@@ -41,7 +77,7 @@ const Module4: React.FC = () => {
                         </Col>
                     </Row>
                     <Row>
-                        <Col onClick={handlerClickAcordion} className="accordion" md={12}>video 2 {localState[2].active? <IoIosCheckmarkCircle/>: ""}</Col>
+                        <Col id={"2"} onClick={handlerClickAcordion} className="accordion" md={12}>video 2 {localState[2].active? <IoIosCheckmarkCircle/>: ""}</Col>
                         <Col md={12}>
                             <div className="panel">
                                 <ReactPlayer  url='www.youtube.com/watch?v=MsKRVzmOOoQ' />
@@ -49,7 +85,7 @@ const Module4: React.FC = () => {
                         </Col>
                     </Row>
                     <Row>
-                        <Col onClick={handlerClickAcordion} className="accordion" md={12}>video 3 {localState[3].active? <IoIosCheckmarkCircle/>: ""}</Col>
+                        <Col id={"3"} onClick={handlerClickAcordion} className="accordion" md={12}>video 3 {localState[3].active? <IoIosCheckmarkCircle/>: ""}</Col>
                         <Col md={12}>
                             <div className="panel">
                                 <ReactPlayer url='www.youtube.com/watch?v=MsKRVzmOOoQ' />
@@ -57,7 +93,7 @@ const Module4: React.FC = () => {
                         </Col>
                     </Row>
                     <Row>
-                        <Col onClick={handlerClickAcordion} className="accordion" md={12}>video 4 {localState[4].active? <IoIosCheckmarkCircle/>: ""}</Col>
+                        <Col id={"4"} onClick={handlerClickAcordion} className="accordion" md={12}>video 4 {localState[4].active? <IoIosCheckmarkCircle/>: ""}</Col>
                         <Col md={12}>
                             <div className="panel">
                                 <ReactPlayer url='www.youtube.com/watch?v=MsKRVzmOOoQ' />
@@ -65,7 +101,7 @@ const Module4: React.FC = () => {
                         </Col>
                     </Row>
                     <Row>
-                        <Col onClick={handlerClickAcordion} className="accordion" md={12}>video 5 {localState[5].active? <IoIosCheckmarkCircle/>: ""}</Col>
+                        <Col id={"5"} onClick={handlerClickAcordion} className="accordion" md={12}>video 5 {localState[5].active? <IoIosCheckmarkCircle/>: ""}</Col>
                         <Col md={12}>
                             <div className="panel">
                                 <ReactPlayer url='www.youtube.com/watch?v=MsKRVzmOOoQ' />
@@ -73,16 +109,7 @@ const Module4: React.FC = () => {
                         </Col>
                     </Row>
                     <Row>
-                        <Col onClick={handlerClickAcordion} className="accordion" md={12}>video 6 {localState[6].active? <IoIosCheckmarkCircle/>: ""}</Col>
-                        <Col md={12}>
-                            <div className="panel">
-                                <ReactPlayer url='www.youtube.com/watch?v=MsKRVzmOOoQ' />
-                            </div>
-                        </Col>
-                    </Row>
-
-                    <Row>
-                        <Col onClick={handlerClickAcordion} className="accordion" md={12}>video 7 {localState[7].active? <IoIosCheckmarkCircle/>: ""}</Col>
+                        <Col id={"6"} onClick={handlerClickAcordion} className="accordion" md={12}>video 6 {localState[6].active? <IoIosCheckmarkCircle/>: ""}</Col>
                         <Col md={12}>
                             <div className="panel">
                                 <ReactPlayer url='www.youtube.com/watch?v=MsKRVzmOOoQ' />
@@ -91,7 +118,7 @@ const Module4: React.FC = () => {
                     </Row>
 
                     <Row>
-                        <Col onClick={handlerClickAcordion} className="accordion" md={12}>video 8 {localState[8].active? <IoIosCheckmarkCircle/>: ""}</Col>
+                        <Col id={"7"} onClick={handlerClickAcordion} className="accordion" md={12}>video 7 {localState[7].active? <IoIosCheckmarkCircle/>: ""}</Col>
                         <Col md={12}>
                             <div className="panel">
                                 <ReactPlayer url='www.youtube.com/watch?v=MsKRVzmOOoQ' />
@@ -100,7 +127,16 @@ const Module4: React.FC = () => {
                     </Row>
 
                     <Row>
-                        <Col onClick={handlerClickAcordion} className="accordion" md={12}>video 9 {localState[9].active? <IoIosCheckmarkCircle/>: ""}</Col>
+                        <Col id={"8"} onClick={handlerClickAcordion} className="accordion" md={12}>video 8 {localState[8].active? <IoIosCheckmarkCircle/>: ""}</Col>
+                        <Col md={12}>
+                            <div className="panel">
+                                <ReactPlayer url='www.youtube.com/watch?v=MsKRVzmOOoQ' />
+                            </div>
+                        </Col>
+                    </Row>
+
+                    <Row>
+                        <Col id={"9"} onClick={handlerClickAcordion} className="accordion" md={12}>video 9 {localState[9].active? <IoIosCheckmarkCircle/>: ""}</Col>
                         <Col md={12}>
                             <div className="panel">
                                 <ReactPlayer url='www.youtube.com/watch?v=MsKRVzmOOoQ' />
