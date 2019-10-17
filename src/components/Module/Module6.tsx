@@ -1,14 +1,20 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import ReactPlayer from 'react-player';
 import Scroll from 'react-scroll';
 import { IoIosCheckmarkCircle } from 'react-icons/io';
 import historyStored from '../../stores/historyStore';
 
-const Module6: React.FC = () => {
+const Module6: React.FC = ({match}:any) => {
     const HistoryContextStore = useContext(historyStored);
     var Element: any = Scroll.Element;
-    const [localState, setLocalState] = useState({ 1: { active: true }, 2: { active: true }, 3: { active: true }, });
+    const [localState, setLocalState] = useState({ 1: { active: false }, 2: { active: false }, 3: { active: false }, });
+
+    
+    useEffect(() => {
+        console.log(match);
+    },[])
+
 
     function handlerClickAcordion(event: any) {
         let id: number = event.target.id;

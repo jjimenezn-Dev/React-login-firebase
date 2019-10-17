@@ -4,7 +4,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import Scroll from 'react-scroll';
 
 
-const Home: React.FC = () => {
+const Home: React.FC = ({match}:any) => {
     var Element:any = Scroll.Element;
     return (
 

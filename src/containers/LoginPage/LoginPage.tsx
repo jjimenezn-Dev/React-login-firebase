@@ -3,7 +3,7 @@ import LoginForm from '../../components/LoginForm/LoginForm';
 import { BrowserRouter as Router, Route, } from 'react-router-dom';
 import SignupForm from '../../components/SignupForm/SignupForm';
 
-const LoginPage: React.FC = () => {
+const LoginPage: React.FC = ({match}:any) => {
 
 
   return (

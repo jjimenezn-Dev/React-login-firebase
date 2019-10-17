@@ -24,15 +24,26 @@ import Quiz4 from '../../components/Quiz/Quiz4';
 import Quiz5 from '../../components/Quiz/Quiz5';
 import Quiz6 from '../../components/Quiz/Quiz6';
 
-const HomePage: React.FC = observer(() => {
+const HomePage: React.FC = observer((props:any) => {
   const HistoryContextStore = useContext(historyStored);
   const firebaseContextStore = useContext(firebaseStore);
 
-  const [localState, setLocalState] = useState({ name: "Juan Sebastian", last_name: "Jimenez Nieto" });
+  const [localState, setLocalState] = useState({ name: "Juan Sebastian", last_name: "Jimenez Nieto",id: "" });
 
+  useEffect(() => {
+    localState.id = props.history.location.state.username;
+    validateAuth()
+  },[]);
+
+  function validateAuth(){
+    console.log(localState.id);
+    console.log(`${props.history.location.state.username}`);
+    
+  }
   function handleNameChange(event: any) {
     setLocalState({ ...localState, name: event.target.value });
   }
+
   useEffect(() => {
     console.log(toJS(firebaseContextStore.fireAuth));
 

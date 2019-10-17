@@ -1,6 +1,6 @@
 import React from 'react';
 
-const UserPage: React.FC = () => {
+const UserPage: React.FC = ({match}:any) => {
 
     return (
         <div>

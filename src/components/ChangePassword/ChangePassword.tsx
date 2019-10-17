@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const ChangePassword: React.FC = () => {
+const ChangePassword: React.FC = ({match}:any) => {
     const [localState, setLocalState] = useState({username:"", password:""});
 
     function handleLoginClick(event:any) {

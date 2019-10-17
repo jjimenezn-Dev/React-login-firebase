@@ -3,7 +3,7 @@ import historyStored from '../../stores/historyStore';
 import firebaseStore from '../../stores/firebaseStore';
 import { IUser } from '../../interfaces/UserI';
 
-const SignupForm: React.FC = () => {
+const SignupForm: React.FC = ({match}:any) => {
     const HistoryContextStore = useContext(historyStored);
     const firebaseContextStore = useContext(firebaseStore);
 

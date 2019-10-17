@@ -19,8 +19,10 @@ const LoginForm = observer(() => {
         try {
             firebaseContextStore.fireAuth[0].signInWithEmailAndPassword(email, password)
             .then(function (user: any) {
+                console.log();
+                
                 console.log('Credenciales correctas, ¡bienvenido!');
-                HistoryContextStore.history.push("/home", {username: localState.username});
+                HistoryContextStore.history.push({pathname: "/home", state:{username: firebaseContextStore.fireAuth[0].W?`${firebaseContextStore.fireAuth[0].W}`:"none"}});
                 HistoryContextStore.history.go();
                 //juan_jimenezn@hotmail.com
             })

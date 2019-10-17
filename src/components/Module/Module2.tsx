@@ -5,11 +5,11 @@ import Scroll from 'react-scroll';
 import { IoIosCheckmarkCircle } from 'react-icons/io';
 import historyStored from '../../stores/historyStore';
 
-const Module2: React.FC = () => {
+const Module2: React.FC = ({match}:any) => {
     const HistoryContextStore = useContext(historyStored);
     var Element: any = Scroll.Element;
 
-    const [localState, setLocalState] = useState({ 1: { active: true }, 2: { active: true }, 3: { active: true }, 4: { active: true }, 5: { active: true }, });
+    const [localState, setLocalState] = useState({ 1: { active: false }, 2: { active: false }, 3: { active: false }, 4: { active: false }, 5: { active: false }, });
 
     function handlerClickAcordion(event: any) {
         let id: number = event.target.id;

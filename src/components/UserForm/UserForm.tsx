@@ -1,6 +1,6 @@
 import React from 'react';
 
-const UserForm: React.FC = () => {
+const UserForm: React.FC = ({match}:any) => {
 
     return (
         <div>
