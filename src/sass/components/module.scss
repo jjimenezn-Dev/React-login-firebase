@@ -6,6 +6,7 @@
 
   .accordion {
     cursor: pointer;
+    min-height: 3.8rem;
     background-color: $dark;
     color: $light;
     padding: 18px;
@@ -23,17 +24,31 @@
     background-color: $primary;
   }
 
+  .active{
+    div{
+      width: 100%!important;
+    }
+  }
+
   .panel {
     padding: 0 18px;
     display: none;
     background-color: white;
     overflow: hidden;
+    width: 100%;
   }
 
   .container {
     position: relative;
     top: 0px;
     min-width: 100%;
-    width: 80%;
+  }
+
+  iframe{
+    width: 100%!important;
+  }
+
+  .fit{
+    padding: 0!important;
   }
 }

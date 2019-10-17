@@ -20,7 +20,7 @@ const LoginForm = observer(() => {
             firebaseContextStore.fireAuth[0].signInWithEmailAndPassword(email, password)
             .then(function (user: any) {
                 console.log('Credenciales correctas, ¡bienvenido!');
-                HistoryContextStore.history.push("/home");
+                HistoryContextStore.history.push("/home", {username: localState.username});
                 HistoryContextStore.history.go();
                 //juan_jimenezn@hotmail.com
             })
@@ -40,6 +40,11 @@ const LoginForm = observer(() => {
     function handlePasswordChange(event:any) {
         setLocalState({ ...localState, password: event.target.value });
     }
+
+    function handleLoginClickLink(event:any) {
+        HistoryContextStore.history.push("/signup");
+        HistoryContextStore.history.go();
+    }
     return (
         <form>
             <div className="container-login">
@@ -50,6 +55,7 @@ const LoginForm = observer(() => {
                 <input type="password" placeholder="Ingresar Contraseña" name="psw" onChange={handlePasswordChange} required/>
                     
                 <button type="submit" onClick={handleLoginClick}>Login</button>
+                <p onClick={handleLoginClickLink} className="registrer_link">Formulario de registro</p>
             </div>
         </form>
     );

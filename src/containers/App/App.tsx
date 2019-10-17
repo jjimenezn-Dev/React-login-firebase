@@ -29,6 +29,7 @@ const App = observer(() => {
         <Provider connection={firebaseStore}>
           <Router>
             <Route path="/" exact component={LoginPage} />
+            <Route path="/signup" exact component={LoginPage} />
             <Route path="/home" exact component={HomePage} />
             <Route path="/cursos" exact component={HomePage} />
             <Route path="/moduloI" exact component={HomePage} />
@@ -39,7 +40,6 @@ const App = observer(() => {
             <Route path="/moduloVI" exact component={HomePage} />
             <Route path="/usuario" exact component={HomePage} />
             <Route path="/usuarios" exact component={HomePage} />
-            <Route path="/signup" exact component={SignupForm} />
             <Route path="/RecoverPass" exact component={ResetPassword} />
             <Route path="/RecoverPass/reset" exact component={ChangePassword} />
             <Route path="/quiz1" exact component={HomePage} />

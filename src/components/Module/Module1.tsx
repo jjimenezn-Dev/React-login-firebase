@@ -48,7 +48,7 @@ const Module1: React.FC = () => {
         }
     }
     function handlerClickQuiz(event: any) {
-        if (localState[1].active && localState[2].active && localState[3].active && localState[4].active && localState[5].active && localState[6].active && localState[7].active&& localState[8].active&& localState[9].active) {
+        if (localState[1].active && localState[2].active && localState[3].active && localState[4].active && localState[5].active && localState[6].active && localState[7].active && localState[8].active && localState[9].active) {
             HistoryContextStore.history.push("/quiz1");
             HistoryContextStore.history.go();
         }
@@ -67,86 +67,93 @@ const Module1: React.FC = () => {
                 height: '70vh',
                 overflow: 'scroll',
             }}>
+
                 <Container>
                     <Row>
-                        <Col id={"1"} onClick={handlerClickAcordion} className="accordion" md={12}> video 1 {localState[1].active ? <IoIosCheckmarkCircle /> : ""}</Col>
-                        <Col md={12}>
-                            <div className="panel">
-                                <ReactPlayer url='www.youtube.com/watch?v=MsKRVzmOOoQ' />
-                            </div>
+                        <Col md={6}>
+                            <Row>
+                                <Col id={"1"} onClick={handlerClickAcordion} className="accordion" md={12}> video 1 {localState[1].active ? <IoIosCheckmarkCircle /> : ""}</Col>
+                                <Col className="fit" md={12}>
+                                    <div className="panel">
+                                        <ReactPlayer url='www.youtube.com/watch?v=MsKRVzmOOoQ' />
+                                    </div>
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col id={"2"} onClick={handlerClickAcordion} className="accordion" md={12}>video 2  {localState[2].active ? <IoIosCheckmarkCircle /> : ""}</Col>
+                                <Col className="fit" md={12}>
+                                    <div className="panel">
+                                        <ReactPlayer url='www.youtube.com/watch?v=MsKRVzmOOoQ' />
+                                    </div>
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col id={"3"} onClick={handlerClickAcordion} className="accordion" md={12}>video 3 {localState[3].active ? <IoIosCheckmarkCircle /> : ""}</Col>
+                                <Col className="fit" md={12}>
+                                    <div className="panel">
+                                        <ReactPlayer url='www.youtube.com/watch?v=MsKRVzmOOoQ' />
+                                    </div>
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col id={"4"} onClick={handlerClickAcordion} className="accordion" md={12}>video 4 {localState[4].active ? <IoIosCheckmarkCircle /> : ""}</Col>
+                                <Col className="fit" md={12}>
+                                    <div className="panel">
+                                        <ReactPlayer url='www.youtube.com/watch?v=MsKRVzmOOoQ' />
+                                    </div>
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col id={"5"} onClick={handlerClickAcordion} className="accordion" md={12}>video 5 {localState[5].active ? <IoIosCheckmarkCircle /> : ""}</Col>
+                                <Col className="fit" md={12}>
+                                    <div className="panel">
+                                        <ReactPlayer url='www.youtube.com/watch?v=MsKRVzmOOoQ' />
+                                    </div>
+                                </Col>
+                            </Row>
                         </Col>
-                    </Row>
-                    <Row>
-                        <Col id={"2"} onClick={handlerClickAcordion} className="accordion" md={12}>video 2  {localState[2].active ? <IoIosCheckmarkCircle /> : ""}</Col>
-                        <Col md={12}>
-                            <div className="panel">
-                                <ReactPlayer url='www.youtube.com/watch?v=MsKRVzmOOoQ' />
-                            </div>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col id={"3"} onClick={handlerClickAcordion} className="accordion" md={12}>video 3 {localState[3].active ? <IoIosCheckmarkCircle /> : ""}</Col>
-                        <Col md={12}>
-                            <div className="panel">
-                                <ReactPlayer url='www.youtube.com/watch?v=MsKRVzmOOoQ' />
-                            </div>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col id={"4"} onClick={handlerClickAcordion} className="accordion" md={12}>video 4 {localState[4].active ? <IoIosCheckmarkCircle /> : ""}</Col>
-                        <Col md={12}>
-                            <div className="panel">
-                                <ReactPlayer url='www.youtube.com/watch?v=MsKRVzmOOoQ' />
-                            </div>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col id={"5"} onClick={handlerClickAcordion} className="accordion" md={12}>video 5 {localState[5].active ? <IoIosCheckmarkCircle /> : ""}</Col>
-                        <Col md={12}>
-                            <div className="panel">
-                                <ReactPlayer url='www.youtube.com/watch?v=MsKRVzmOOoQ' />
-                            </div>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col id={"6"} onClick={handlerClickAcordion} className="accordion" md={12}>video 6 {localState[6].active ? <IoIosCheckmarkCircle /> : ""}</Col>
-                        <Col md={12}>
-                            <div className="panel">
-                                <ReactPlayer url='www.youtube.com/watch?v=MsKRVzmOOoQ' />
-                            </div>
+                        <Col md={6}>
+                            <Row>
+                                <Col id={"6"} onClick={handlerClickAcordion} className="accordion" md={12}>video 6 {localState[6].active ? <IoIosCheckmarkCircle /> : ""}</Col>
+                                <Col className="fit" md={12}>
+                                    <div className="panel">
+                                        <ReactPlayer url='www.youtube.com/watch?v=MsKRVzmOOoQ' />
+                                    </div>
+                                </Col>
+                            </Row>
+
+                            <Row>
+                                <Col id={"7"} onClick={handlerClickAcordion} className="accordion" md={12}>video 7 {localState[7].active ? <IoIosCheckmarkCircle /> : ""}</Col>
+                                <Col className="fit" md={12}>
+                                    <div className="panel">
+                                        <ReactPlayer url='www.youtube.com/watch?v=MsKRVzmOOoQ' />
+                                    </div>
+                                </Col>
+                            </Row>
+
+                            <Row>
+                                <Col id={"8"} onClick={handlerClickAcordion} className="accordion" md={12}>video 8 {localState[8].active ? <IoIosCheckmarkCircle /> : ""}</Col>
+                                <Col className="fit" md={12}>
+                                    <div className="panel">
+                                        <ReactPlayer url='www.youtube.com/watch?v=MsKRVzmOOoQ' />
+                                    </div>
+                                </Col>
+                            </Row>
+
+                            <Row>
+                                <Col id={"9"} onClick={handlerClickAcordion} className="accordion" md={12}>video 9 {localState[9].active ? <IoIosCheckmarkCircle /> : ""}</Col>
+                                <Col className="fit" md={12}>
+                                    <div className="panel">
+                                        <ReactPlayer className="reactPlayer" url='www.youtube.com/watch?v=MsKRVzmOOoQ' />
+                                    </div>
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col onClick={handlerClickQuiz} className="accordion" md={12}>Quiz</Col>
+                            </Row>
                         </Col>
                     </Row>
 
-                    <Row>
-                        <Col id={"7"} onClick={handlerClickAcordion} className="accordion" md={12}>video 7 {localState[7].active ? <IoIosCheckmarkCircle /> : ""}</Col>
-                        <Col md={12}>
-                            <div className="panel">
-                                <ReactPlayer url='www.youtube.com/watch?v=MsKRVzmOOoQ' />
-                            </div>
-                        </Col>
-                    </Row>
-
-                    <Row>
-                        <Col id={"8"} onClick={handlerClickAcordion} className="accordion" md={12}>video 8 {localState[8].active ? <IoIosCheckmarkCircle /> : ""}</Col>
-                        <Col md={12}>
-                            <div className="panel">
-                                <ReactPlayer url='www.youtube.com/watch?v=MsKRVzmOOoQ' />
-                            </div>
-                        </Col>
-                    </Row>
-
-                    <Row>
-                        <Col id={"9"} onClick={handlerClickAcordion} className="accordion" md={12}>video 9 {localState[9].active ? <IoIosCheckmarkCircle /> : ""}</Col>
-                        <Col md={12}>
-                            <div className="panel">
-                                <ReactPlayer url='www.youtube.com/watch?v=MsKRVzmOOoQ' />
-                            </div>
-                        </Col>
-                    </Row>
-
-                    <Row>
-                        <Col onClick={handlerClickQuiz} className="accordion" md={12}>Quiz</Col>
-                    </Row>
                 </Container>
             </Element>
         </div>
