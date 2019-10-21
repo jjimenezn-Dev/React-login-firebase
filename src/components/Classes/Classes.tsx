@@ -1,12 +1,19 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import Scroll from 'react-scroll';
 import { Row, Col } from 'react-bootstrap';
 import { observer } from 'mobx-react';
 import historyStored from '../../stores/historyStore';
 
-const Classes: React.FC = observer(() => {
+const Classes: React.FC = observer((props:any) => {
     const HistoryContextStore = useContext(historyStored);
     var Element: any = Scroll.Element;
+    const [userState, setuserState] = useState({ name: "Juan Sebastian", last_name: "Jimenez Nieto",id: "" });
+
+
+    useEffect(() => {
+        console.log(props);
+        
+    },[]);
 
     const [localState, setLocalState] = useState({1:false, 2:false, 3:false, 4:false, 5:false, 6:false});
     function handlerListElement(event: any) {
@@ -19,7 +26,7 @@ const Classes: React.FC = observer(() => {
             dir = "/moduloII"; 
         }
         if(event.target.id === "3"){
-            dir = "/moduloIII"; 
+            dir = "/moduloIII";
         }
         if(event.target.id === "4"){
             dir = "/moduloIV"; 
@@ -49,7 +56,7 @@ const Classes: React.FC = observer(() => {
                                 <span id="1" className={localState[1]? "status-success" :"status-pending"}>{localState[1]? "Completado" : "Pendiente"}</span>
                                 <div id="1" className="oth-bar-item">
                                     <span id="1" className="oth-large">Modulo 1</span>
-                                    <p id="1">videos: <span>9</span></p>
+                                    <p id="1">videos: <span>4</span></p>
                                 </div>
                             </li>
                             <li id="2" onClick={handlerListElement} className="oth-bar">
@@ -85,7 +92,7 @@ const Classes: React.FC = observer(() => {
                                 <span id="5" className={localState[5]? "status-success" :"status-pending"}>{localState[5]? "Completado" : "Pendiente"}</span>
                                 <div id="5" className="oth-bar-item">
                                     <span id="5" className="oth-large">Modulo 5</span><br />
-                                    <p id="5">videos: <span>4</span></p>
+                                    <p id="5">videos: <span>9</span></p>
                                 </div>
                             </li>
                             <li id="6" onClick={handlerListElement} className="oth-bar">

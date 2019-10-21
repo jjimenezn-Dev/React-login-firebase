@@ -1,7 +1,7 @@
 import React from 'react';
 import Classes from '../../components/Classes/Classes';
 
-const ClassesPage: React.FC = ({match}:any) => {
+const ClassesPage: React.FC = (props:any) => {
     const curso: string = "curso de manejo defensivo";
 
     return (

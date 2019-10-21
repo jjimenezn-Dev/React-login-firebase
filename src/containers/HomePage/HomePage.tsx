@@ -23,6 +23,7 @@ import Quiz3 from '../../components/Quiz/Quiz3';
 import Quiz4 from '../../components/Quiz/Quiz4';
 import Quiz5 from '../../components/Quiz/Quiz5';
 import Quiz6 from '../../components/Quiz/Quiz6';
+import Classes from '../../components/Classes/Classes';
 
 const HomePage: React.FC = observer((props:any) => {
   const HistoryContextStore = useContext(historyStored);
@@ -31,13 +32,13 @@ const HomePage: React.FC = observer((props:any) => {
   const [localState, setLocalState] = useState({ name: "Juan Sebastian", last_name: "Jimenez Nieto",id: "" });
 
   useEffect(() => {
-    localState.id = props.history.location.state.username;
+    if(props.history.location.state)
+      localState.id = props.history.location.state.id;
     validateAuth()
   },[]);
 
   function validateAuth(){
     console.log(localState.id);
-    console.log(`${props.history.location.state.username}`);
     
   }
   function handleNameChange(event: any) {
@@ -48,13 +49,13 @@ const HomePage: React.FC = observer((props:any) => {
     console.log(toJS(firebaseContextStore.fireAuth));
 
     if (!firebaseContextStore.fireAuth) {
-      HistoryContextStore.history.push("/");
+      HistoryContextStore.history.push({pathname: "/", state:{username: localState.id!=""?`${localState.id}`:"none"}});
       HistoryContextStore.history.go();
     }
   }, [])
 
   function handlerLogo(event: any) {
-    HistoryContextStore.history.push("/home");
+    HistoryContextStore.history.push({pathname: "/home", state:{username: localState.id!=""?`${localState.id}`:"none"}});
     HistoryContextStore.history.go();
   }
 
@@ -78,7 +79,7 @@ const HomePage: React.FC = observer((props:any) => {
           <Col className="content" md={10}>
             <div>
               <Router>
-                <Route path="/home" exact component={ClassesPage} />
+                <Route path="/home" exact component={(props:any) => <ClassesPage {...props} />} />
                 <Route path="/curso" exact component={Home} />
                 <Route path="/moduloI" exact component={Module1} />
                 <Route path="/moduloII" exact component={Module2} />
