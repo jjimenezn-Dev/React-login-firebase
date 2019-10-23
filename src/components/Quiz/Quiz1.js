@@ -1,11 +1,12 @@
 
-import React from 'react';
+import React, { useContext } from 'react';
+import { createBrowserHistory } from "history";
 
 class Quiz1 extends React.Component {
     constructor(props) {
       super(props)
-      
-      var dataSet = [
+
+  var dataSet = [
         {
           question: "¿Cuales son las partes principales de un motor a gasolina?",
           answers: [
@@ -88,7 +89,7 @@ class Quiz1 extends React.Component {
             }
       ];
       
-      this.state = {current:0, dataSet:dataSet, correct:0, incorrect:0}
+      this.state = {current:0, dataSet:dataSet, correct:0, incorrect:0, history :createBrowserHistory()}
       this.handleClick = this.handleClick.bind(this)
       
     }
@@ -102,10 +103,18 @@ class Quiz1 extends React.Component {
       
       if (this.state.current === 7 && this.state.incorrect === 0) {
           console.log("congrats");
+          let userKey = this.props.history.location.state.username ? this.props.history.location.state.username : "";
+  
+          this.state.history.push({ pathname: "/loading", state: { username: userKey, quiz: "NA" } });
+          this.state.history.go();
           
       } 
       else if (this.state.current === 7 && this.state.incorrect > 0) {
         console.log("Bad");
+        let userKey = this.props.history.location.state.username ? this.props.history.location.state.username : "";
+
+        this.state.history.push({ pathname: "/loading", state: { username: userKey, quiz: "1" } });
+        this.state.history.go();
         
     } else {
            this.setState({current: this.state.current + 1}) 

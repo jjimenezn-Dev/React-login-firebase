@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { observer } from "mobx-react";
 import historyStored from "../../stores/historyStore";
 
-const Card: React.FC = observer(() => {
+const Card= observer(() => {
     const HistoryContextStore = useContext(historyStored);
 
     const time:string = "9";

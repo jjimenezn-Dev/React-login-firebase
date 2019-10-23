@@ -3,12 +3,12 @@ import historyStored from '../../stores/historyStore';
 import firebaseStore from '../../stores/firebaseStore';
 import { IUser } from '../../interfaces/UserI';
 
-const SignupForm: React.FC = ({match}:any) => {
+const SignupForm= ({match}:any) => {
     const HistoryContextStore = useContext(historyStored);
     const firebaseContextStore = useContext(firebaseStore);
 
     const [localState, setLocalState] = useState({ username: "", password: "" });
-    const [usareState, setUserState] = useState({ id: "0", name: "", last_name: "", mail: "", document_id: "", available: "false", isAdmin: "false", courses: "{1:false, 2:false, 3:false, 4:false, 5:false, 6:false}" });
+    const [usareState, setUserState] = useState({ id: "0", name: "", last_name: "", mail: "", document_id: "", available: "false", isAdmin: "false", courses: '{"1":false, "2":false, "3":false, "4":false, "5":false, "6":false}' });
 
     function handleUserNameChange(event: any) {
         setLocalState({ ...localState, username: event.target.value });

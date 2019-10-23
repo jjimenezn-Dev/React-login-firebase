@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { observer } from 'mobx-react-lite';
 import historyStored from '../../stores/historyStore';
 
-const AdminMenu: React.FC = observer(() => {
+const AdminMenu= observer((props:any) => {
     const HistoryContextStore = useContext(historyStored);
 
     function usersListHandler(event: any) {

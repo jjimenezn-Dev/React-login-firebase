@@ -1,6 +1,6 @@
 import React from 'react';
 
-const UserList: React.FC = ({match}:any) => {
+const UserList= ({match}:any) => {
 
     return (
         <div>

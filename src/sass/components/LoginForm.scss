@@ -23,11 +23,22 @@ button:hover{
 }
 
 .container-login {
-    max-width: 60%;
+    max-width: 80%;
     margin: 30vh auto;
     color: $light;
     background-color: rgba(0, 0, 0, 0.6);
     padding: 20px;
+    li{
+        padding: 15px;
+        span{
+            color: $pink;
+            font-weight: bolder;
+        }
+    }
+}
+
+.explanation{
+    margin: 25vh auto;
 }
 
 .container-signup {

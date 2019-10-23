@@ -24,30 +24,26 @@ import Quiz4 from '../../components/Quiz/Quiz4';
 import Quiz5 from '../../components/Quiz/Quiz5';
 import Quiz6 from '../../components/Quiz/Quiz6';
 import Classes from '../../components/Classes/Classes';
+import updateQuizUser from '../../components/utils/updateQuizUser';
 
-const HomePage: React.FC = observer((props:any) => {
+const HomePage= observer((props:any, {match}:any) => {
   const HistoryContextStore = useContext(historyStored);
   const firebaseContextStore = useContext(firebaseStore);
 
   const [localState, setLocalState] = useState({ name: "Juan Sebastian", last_name: "Jimenez Nieto",id: "" });
 
   useEffect(() => {
-    if(props.history.location.state)
-      localState.id = props.history.location.state.id;
-    validateAuth()
+   
   },[]);
 
   function validateAuth(){
-    console.log(localState.id);
-    
   }
+
   function handleNameChange(event: any) {
     setLocalState({ ...localState, name: event.target.value });
   }
 
   useEffect(() => {
-    console.log(toJS(firebaseContextStore.fireAuth));
-
     if (!firebaseContextStore.fireAuth) {
       HistoryContextStore.history.push({pathname: "/", state:{username: localState.id!=""?`${localState.id}`:"none"}});
       HistoryContextStore.history.go();
@@ -79,14 +75,14 @@ const HomePage: React.FC = observer((props:any) => {
           <Col className="content" md={10}>
             <div>
               <Router>
-                <Route path="/home" exact component={(props:any) => <ClassesPage {...props} />} />
-                <Route path="/curso" exact component={Home} />
-                <Route path="/moduloI" exact component={Module1} />
-                <Route path="/moduloII" exact component={Module2} />
-                <Route path="/moduloIII" exact component={Module3} />
-                <Route path="/moduloIV" exact component={Module4} />
-                <Route path="/moduloV" exact component={Module5} />
-                <Route path="/moduloVI" exact component={Module6} />
+                <Route path="/home" exact component={() => <Classes {...props} />} />
+                <Route path="/cursos" exact component={() => <Home props={props} />} />
+                <Route path="/moduloI" exact component={() => <Module1 props={props} />} />
+                <Route path="/moduloII" exact component={() => <Module2 props={props} />} />
+                <Route path="/moduloIII" exact component={() => <Module3 props={props} />} />
+                <Route path="/moduloIV" exact component={() => <Module4 props={props} />} />
+                <Route path="/moduloV" exact component={() => <Module5 props={props} />} />
+                <Route path="/moduloVI" exact component={() => <Module6 props={props} />} />
                 <Route path="/usuario" exact component={Home} />
                 <Route path="/usuarios" exact component={Home} />
                 <Route path="/quiz1" exact component={Quiz1} />
@@ -95,6 +91,7 @@ const HomePage: React.FC = observer((props:any) => {
                 <Route path="/quiz4" exact component={Quiz4} />
                 <Route path="/quiz5" exact component={Quiz5} />
                 <Route path="/quiz6" exact component={Quiz6} />
+                <Route path="/loading" exact component={updateQuizUser} />
               </Router>
             </div>
           </Col>

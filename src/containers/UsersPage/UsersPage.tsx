@@ -1,6 +1,6 @@
 import React from 'react';
 
-const UsersPage: React.FC = ({match}:any) => {
+const UsersPage= ({match}:any) => {
 
     return (
         <div>

@@ -18,8 +18,8 @@ const App = observer(() => {
       firebaseContextStore.addConnection();
       console.log("Firebase connection: Ok.");
     } catch (error) {
-      console.log(error);
-      alert("Error de conección.");
+      if(!error.message.includes("already exists"))
+        alert("Error de conección.");
     }
   }, [])
 
@@ -48,6 +48,7 @@ const App = observer(() => {
             <Route path="/quiz4" exact component={HomePage} />
             <Route path="/quiz5" exact component={HomePage} />
             <Route path="/quiz6" exact component={HomePage} />
+            <Route path="/loading" exact component={HomePage} />
           </Router>
         </Provider>
       </header>

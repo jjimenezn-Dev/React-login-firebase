@@ -5,7 +5,7 @@ import Scroll from 'react-scroll';
 import { IoIosCheckmarkCircle } from 'react-icons/io';
 import historyStored from '../../stores/historyStore';
 
-const Module4: React.FC = ({match}:any) => {
+const Module4= ({match}:any) => {
     const HistoryContextStore = useContext(historyStored);
     var Element: any = Scroll.Element;
     const [localState, setLocalState] = useState({ 1: { active: false }, 2: { active: false }, 3: { active: false }, 4: { active: false }, 5: { active: false }, 6: { active: false }, 7: { active: false }, 8: { active: false }, 9: { active: false } });

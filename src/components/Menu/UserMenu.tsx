@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { observer } from 'mobx-react';
 import historyStored from '../../stores/historyStore';
 
-const UserMenu: React.FC = observer(() => {
+const UserMenu= observer(() => {
     const HistoryContextStore = useContext(historyStored);
 
     function homeHandler(event: any) {

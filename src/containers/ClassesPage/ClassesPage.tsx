@@ -1,7 +1,7 @@
 import React from 'react';
 import Classes from '../../components/Classes/Classes';
 
-const ClassesPage: React.FC = (props:any) => {
+const ClassesPage = ({props}:any) => {
     const curso: string = "curso de manejo defensivo";
 
     return (
@@ -11,7 +11,7 @@ const ClassesPage: React.FC = (props:any) => {
                 <h3 className="curse_name">Modulos de curso</h3>
             </div>
             <div>
-                <Classes />
+                <Classes props={props} />
             </div>
         </div>
     );

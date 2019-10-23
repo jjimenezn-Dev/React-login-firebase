@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { createBrowserHistory } from "history";
 
 class Quiz4 extends React.Component {
     constructor(props) {
@@ -68,7 +69,7 @@ class Quiz4 extends React.Component {
             },
       ];
       
-      this.state = {current:0, dataSet:dataSet, correct:0, incorrect:0}
+      this.state = {current:0, dataSet:dataSet, correct:0, incorrect:0, history :createBrowserHistory()}
       this.handleClick = this.handleClick.bind(this)
       
     }
@@ -82,10 +83,18 @@ class Quiz4 extends React.Component {
       
       if (this.state.current === 5 && this.state.incorrect === 0) {
           console.log("congrats");
+          let userKey = this.props.history.location.state.username ? this.props.history.location.state.username : "";
+  
+          this.state.history.push({ pathname: "/loading", state: { username: userKey, quiz: "4" } });
+          this.state.history.go();
           
       } 
       else if (this.state.current === 5 && this.state.incorrect > 0) {
         console.log("Bad");
+        let userKey = this.props.history.location.state.username ? this.props.history.location.state.username : "";
+
+        this.state.history.push({ pathname: "/loading", state: { username: userKey, quiz: "NA" } });
+        this.state.history.go();
         
     } else {
            this.setState({current: this.state.current + 1}) 
