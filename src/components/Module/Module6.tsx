@@ -61,7 +61,7 @@ const Module6= ({match}:any) => {
                                 <Col id={"1"} onClick={handlerClickAcordion} className="accordion" md={12}>video 1 {localState[1].active ? <IoIosCheckmarkCircle /> : ""}</Col>
                                 <Col className="fit" md={12}>
                                     <div className="panel">
-                                        <ReactPlayer url='www.youtube.com/watch?v=MsKRVzmOOoQ' />
+                                        <ReactPlayer url='https://youtu.be/sDdXzdxzas8' />
                                     </div>
                                 </Col>
                             </Row>
@@ -69,7 +69,7 @@ const Module6= ({match}:any) => {
                                 <Col id={"2"} onClick={handlerClickAcordion} className="accordion" md={12}>video 2 {localState[2].active ? <IoIosCheckmarkCircle /> : ""}</Col>
                                 <Col className="fit" md={12}>
                                     <div className="panel">
-                                        <ReactPlayer url='www.youtube.com/watch?v=MsKRVzmOOoQ' />
+                                        <ReactPlayer url='https://youtu.be/11F7YYtRg5M' />
                                     </div>
                                 </Col>
                             </Row>
@@ -79,7 +79,7 @@ const Module6= ({match}:any) => {
                                 <Col id={"3"} onClick={handlerClickAcordion} className="accordion" md={12}>video 3 {localState[3].active ? <IoIosCheckmarkCircle /> : ""}</Col>
                                 <Col className="fit" md={12}>
                                     <div className="panel">
-                                        <ReactPlayer url='www.youtube.com/watch?v=MsKRVzmOOoQ' />
+                                        <ReactPlayer url='https://youtu.be/D3tDDvipux0' />
                                     </div>
                                 </Col>
                             </Row>
