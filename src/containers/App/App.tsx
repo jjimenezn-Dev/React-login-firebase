@@ -49,6 +49,7 @@ const App = observer(() => {
             <Route path="/quiz5" exact component={HomePage} />
             <Route path="/quiz6" exact component={HomePage} />
             <Route path="/loading" exact component={HomePage} />
+            <Route path="/usersAmdin" exact component={HomePage} />
           </Router>
         </Provider>
       </header>

@@ -7,8 +7,6 @@ import firebaseStore from '../../stores/firebaseStore';
 import UserMenu from '../../components/Menu/UserMenu';
 import AdminMenu from '../../components/Menu/AdminMenu';
 import { observer } from 'mobx-react-lite';
-import { toJS } from 'mobx';
-import ClassesPage from '../ClassesPage/ClassesPage';
 import logo from '../../assets/images/logo.png';
 import SignOutButton from '../../components/SignOutButton/SignOutButton';
 import Module1 from '../../components/Module/Module1';
@@ -26,17 +24,17 @@ import Quiz6 from '../../components/Quiz/Quiz6';
 import Classes from '../../components/Classes/Classes';
 import updateQuizUser from '../../components/utils/updateQuizUser';
 
-const HomePage= observer((props:any, {match}:any) => {
+const HomePage = observer((props: any, { match }: any) => {
   const HistoryContextStore = useContext(historyStored);
   const firebaseContextStore = useContext(firebaseStore);
 
-  const [localState, setLocalState] = useState({ name: "Juan Sebastian", last_name: "Jimenez Nieto",id: "" });
+  const [localState, setLocalState] = useState({ name: "Juan Sebastian", last_name: "Jimenez Nieto", id: "" });
 
   useEffect(() => {
-   
-  },[]);
 
-  function validateAuth(){
+  }, []);
+
+  function validateAuth() {
   }
 
   function handleNameChange(event: any) {
@@ -45,13 +43,13 @@ const HomePage= observer((props:any, {match}:any) => {
 
   useEffect(() => {
     if (!firebaseContextStore.fireAuth) {
-      HistoryContextStore.history.push({pathname: "/", state:{username: localState.id!=""?`${localState.id}`:"none"}});
+      HistoryContextStore.history.push({ pathname: "/", state: { username: localState.id != "" ? `${localState.id}` : "none" } });
       HistoryContextStore.history.go();
     }
   }, [])
 
   function handlerLogo(event: any) {
-    HistoryContextStore.history.push({pathname: "/home", state:{username: localState.id!=""?`${localState.id}`:"none"}});
+    HistoryContextStore.history.push({ pathname: "/home", state: { username: localState.id != "" ? `${localState.id}` : "none" } });
     HistoryContextStore.history.go();
   }
 
@@ -92,6 +90,7 @@ const HomePage= observer((props:any, {match}:any) => {
                 <Route path="/quiz5" exact component={Quiz5} />
                 <Route path="/quiz6" exact component={Quiz6} />
                 <Route path="/loading" exact component={updateQuizUser} />
+                <Route path="/usersAmdin" exact component={Home} />
               </Router>
             </div>
           </Col>
