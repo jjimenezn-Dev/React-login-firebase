@@ -5,7 +5,7 @@ import Scroll from 'react-scroll';
 import { IoIosCheckmarkCircle } from 'react-icons/io';
 import historyStored from '../../stores/historyStore';
 
-const Module2= ({props}:any) => {
+const Module2 = ({ props }: any) => {
     const HistoryContextStore = useContext(historyStored);
     var Element: any = Scroll.Element;
 
@@ -37,9 +37,14 @@ const Module2= ({props}:any) => {
     }
     function handlerClickQuiz(event: any) {
         if (localState[1].active && localState[2].active && localState[3].active && localState[4].active && localState[5].active) {
-            let userKey = props.history.location.state.username ? props.history.location.state.username : "";
-            HistoryContextStore.history.push({ pathname: "/quiz2", state: { username:  userKey} });
-            HistoryContextStore.history.go();
+            try {
+                let userKey = props.history.location.state.username ? props.history.location.state.username : "";
+                HistoryContextStore.history.push({ pathname: "/quiz2", state: { username: userKey } });
+                HistoryContextStore.history.go();
+            } catch (error) {
+                HistoryContextStore.history.push("/");
+                HistoryContextStore.history.go();
+            }
         }
         else {
             alert("Completa todos los videos para activar el quiz.");

@@ -103,18 +103,28 @@ class Quiz1 extends React.Component {
       
       if (this.state.current === 7 && this.state.incorrect === 0) {
           console.log("congrats");
-          let userKey = this.props.history.location.state.username ? this.props.history.location.state.username : "";
-  
-          this.state.history.push({ pathname: "/loading", state: { username: userKey, quiz: "NA" } });
+          try {
+          let userKey = this.props.history.location.state.username ? this.props.history.location.state.username : "";            
+          this.state.history.push({ pathname: "/loading", state: { username: userKey, quiz: "1" } });
           this.state.history.go();
+          } catch (error) {
+            
+            this.state.history.push("/");
+            this.state.history.go();
+          }
           
       } 
       else if (this.state.current === 7 && this.state.incorrect > 0) {
         console.log("Bad");
-        let userKey = this.props.history.location.state.username ? this.props.history.location.state.username : "";
-
-        this.state.history.push({ pathname: "/loading", state: { username: userKey, quiz: "1" } });
-        this.state.history.go();
+        try {
+          let userKey = this.props.history.location.state.username ? this.props.history.location.state.username : "";            
+          this.state.history.push({ pathname: "/loading", state: { username: userKey, quiz: "NA" } });
+          this.state.history.go();
+          } catch (error) {
+            
+            this.state.history.push("/");
+            this.state.history.go();
+          }
         
     } else {
            this.setState({current: this.state.current + 1}) 

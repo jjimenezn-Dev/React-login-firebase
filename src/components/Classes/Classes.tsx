@@ -17,8 +17,8 @@ const Classes = observer((props, { match }: any) => {
         let userKey = props.history.location.state.username ? props.history.location.state.username : "";
         firstAsync().then(() => {
             const db = firebaseContextStore.connections.firestore();
-            secondAsync(userKey, db).then(function (cityRef: any) {
-                cityRef.forEach(function (doc: any) {
+            secondAsync(userKey, db).then(function (userRef: any) {
+                userRef.forEach(function (doc: any) {
                     let curses: string = doc.data().courses;
                     let json = JSON.parse(curses);
                     localState = [];
@@ -30,8 +30,6 @@ const Classes = observer((props, { match }: any) => {
                     console.log(elements);
                     
                     for (let i = 0; i < elements.length; i++) { 
-                        console.log(i);
-                        
                         if (localState[i] == true && (i+1) == Number.parseInt( elements[i].id) ) {
                             elements[i].innerHTML = "Completado"
                             elements[i].className = "status-success check"
@@ -75,7 +73,6 @@ const Classes = observer((props, { match }: any) => {
         }
         try {
             let userKey = props.history.location.state.username ? props.history.location.state.username : "";
-
             HistoryContextStore.history.push({ pathname: dir, state: { username: userKey } });
             HistoryContextStore.history.go();
         } catch (error) {

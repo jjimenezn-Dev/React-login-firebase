@@ -8,8 +8,9 @@ class fireConnection {
 	@observable fireAuth:any = [];
 
 	@action addConnection() {
-		this.connections = firebase.initializeApp(config);
-		return this.connections;
+		if(!this.connections)
+			this.connections = firebase.initializeApp(config);
+		return firebase.app;
 	}
 
 	@action addAuth() {

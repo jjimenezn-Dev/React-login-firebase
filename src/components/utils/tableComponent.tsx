@@ -8,7 +8,7 @@ interface ITableProps {
     columns: TableProps["columns"];
     columnsAccessor: Array<string>;
     loading: boolean;
-    searchPlaceHolder:string;
+    searchPlaceHolder: string;
     button: Function;
     defaultSearch?: number;
 }
@@ -23,8 +23,8 @@ class TableComponent extends React.Component<ITableProps> {
         const filters: Array<Filter> = this.props.columnsAccessor.map(currentColumn => ({ id: currentColumn, value: filtered }))
 
         if (filtered.length === 0) {
-            this.setState({ filteredObject: [] }) 
-        } else{
+            this.setState({ filteredObject: [] })
+        } else {
             this.setState({ filteredObject: filters })
         }
     }
@@ -42,7 +42,7 @@ class TableComponent extends React.Component<ITableProps> {
     public render() {
         return <div className="table-margin">
             <ReactTable
-            className={"react-table"}
+                className={"react-table"}
                 getTheadFilterProps={() => {
                     return {
                         style:
@@ -71,9 +71,6 @@ class TableComponent extends React.Component<ITableProps> {
                         <div>
                             <Grid>
                                 <Grid.Row>
-                                    <Grid.Column width={10}>
-                                        <SearchComponent data={state} searchPlaceHolder={this.props.searchPlaceHolder} handleFilter={this.onKeyInputEnter} />
-                                    </Grid.Column>
                                     <Grid.Column width={6}>
                                         {this.props.button()}
                                     </Grid.Column>
@@ -84,7 +81,6 @@ class TableComponent extends React.Component<ITableProps> {
                             <Grid>
                                 <Grid.Row>
                                     <Grid.Column textAlign="right">
-                                        <Button></Button>
                                     </Grid.Column>
                                 </Grid.Row>
                             </Grid>

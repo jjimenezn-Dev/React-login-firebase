@@ -29,14 +29,7 @@ const HomePage = observer((props: any, { match }: any) => {
   const firebaseContextStore = useContext(firebaseStore);
 
   const [localState, setLocalState] = useState({ name: "Juan Sebastian", last_name: "Jimenez Nieto", id: "" });
-
-  useEffect(() => {
-
-  }, []);
-
-  function validateAuth() {
-  }
-
+  
   function handleNameChange(event: any) {
     setLocalState({ ...localState, name: event.target.value });
   }
@@ -66,8 +59,8 @@ const HomePage = observer((props: any, { match }: any) => {
               <h3>Bienvenido</h3> <h4>{`${localState.name} ${localState.last_name}`}</h4>
             </div>
             <div className="welcome-message"></div>
-            <UserMenu />
-            <AdminMenu />
+            <UserMenu {...props}/>
+            <AdminMenu {...props} />
             <SignOutButton />
           </Col>
           <Col className="content" md={10}>

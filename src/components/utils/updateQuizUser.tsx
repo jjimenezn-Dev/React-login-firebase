@@ -17,8 +17,8 @@ const updateQuizUser = observer((props: any) => {
         else {
             firstAsync().then(() => {
                 const db = firebaseContextStore.connections.firestore();
-                secondAsync(userKey, db).then(function (cityRef: any) {
-                    cityRef.forEach(function (doc: any) {
+                secondAsync(userKey, db).then(function (userRef: any) {
+                    userRef.forEach(function (doc: any) {
                         console.log(doc.id, " => ", doc.data());
                         let curses: string = doc.data().courses;
                         let json = JSON.parse(curses);
