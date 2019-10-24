@@ -53,22 +53,23 @@ const Classes = observer((props, { match }: any) => {
 
     function handlerListElement(event: any) {
         let dir = "/home";
-        if (event.target.id === "1") {
+        
+        if (event.target.id === "li1") {
             dir = "/moduloI";
         }
-        if (event.target.id === "2") {
+        if (event.target.id === "li2") {
             dir = "/moduloII";
         }
-        if (event.target.id === "3") {
+        if (event.target.id === "li3") {
             dir = "/moduloIII";
         }
-        if (event.target.id === "4") {
+        if (event.target.id === "li4") {
             dir = "/moduloIV";
         }
-        if (event.target.id === "5") {
+        if (event.target.id === "li5") {
             dir = "/moduloV";
         }
-        if (event.target.id === "6") {
+        if (event.target.id === "li6") {
             dir = "/moduloVI";
         }
         try {
@@ -102,7 +103,7 @@ const Classes = observer((props, { match }: any) => {
                         <Row>
                             <Col>
                                 <ul className="oth-ul oth-card-4">
-                                    <li  onClick={handlerListElement} className="oth-bar">
+                                    <li id="li1" onClick={handlerListElement} className="oth-bar">
                                         <p  className="roman bg oth-bar-item oth-circle oth-hide-small">I</p>
                                         <span id="1" className={"status-pending check"}>{localState[0] ? "Completado" : "Pendiente"}</span>
                                         <div  className="oth-bar-item">
@@ -110,7 +111,7 @@ const Classes = observer((props, { match }: any) => {
                                             <p >videos: <span>4</span></p>
                                         </div>
                                     </li>
-                                    <li  onClick={handlerListElement} className="oth-bar">
+                                    <li id="li2" onClick={handlerListElement} className="oth-bar">
                                         <p  className="roman bg oth-bar-item oth-circle oth-hide-small">II</p>
                                         <span id="2" className={"status-pending check"}>{localState[1] ? "Completado" : "Pendiente"}</span>
                                         <div  className="oth-bar-item">
@@ -118,7 +119,7 @@ const Classes = observer((props, { match }: any) => {
                                             <p >videos: <span>5</span></p>
                                         </div>
                                     </li>
-                                    <li  onClick={handlerListElement} className="oth-bar">
+                                    <li id="li3" onClick={handlerListElement} className="oth-bar">
                                         <p  className="roman bg oth-bar-item oth-circle oth-hide-small">III</p>
                                         <span id="3" className={"status-pending check"}>{localState[2] ? "Completado" : "Pendiente"}</span>
                                         <div  className="oth-bar-item">
@@ -130,7 +131,7 @@ const Classes = observer((props, { match }: any) => {
                             </Col>
                             <Col>
                                 <ul className="oth-ul oth-card-4">
-                                    <li  onClick={handlerListElement} className="oth-bar">
+                                    <li id="li4" onClick={handlerListElement} className="oth-bar">
                                         <p  className="roman bg oth-bar-item oth-circle oth-hide-small">IV</p>
                                         <span id="4" className={"status-pending check"}>{localState[3] ? "Completado" : "Pendiente"}</span>
                                         <div  className="oth-bar-item">
@@ -138,7 +139,7 @@ const Classes = observer((props, { match }: any) => {
                                             <p >videos: <span>9</span></p>
                                         </div>
                                     </li>
-                                    <li  onClick={handlerListElement} className="oth-bar">
+                                    <li id="li5" onClick={handlerListElement} className="oth-bar">
                                         <p  className="roman bg oth-bar-item oth-circle oth-hide-small">V</p>
                                         <span id="5" className={"status-pending check"}>{localState[4] ? "Completado" : "Pendiente"}</span>
                                         <div  className="oth-bar-item">
@@ -146,7 +147,7 @@ const Classes = observer((props, { match }: any) => {
                                             <p >videos: <span>9</span></p>
                                         </div>
                                     </li>
-                                    <li  onClick={handlerListElement} className="oth-bar">
+                                    <li id="li6" onClick={handlerListElement} className="oth-bar">
                                         <p  className="roman bg oth-bar-item oth-circle oth-hide-small">VI</p>
                                         <span id="6" className={"status-pending check"}>{localState[5] ? "Completado" : "Pendiente"}</span>
                                         <div  className="oth-bar-item">

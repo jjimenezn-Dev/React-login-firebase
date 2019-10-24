@@ -19,8 +19,6 @@ const UserMenu = observer((props: any) => {
         <ul>
             <h6 className="sub-tittle">Usuario</h6>
             <li onClick={homeHandler} className="menu-button">Inicio</li>
-            <li className="menu-button">Mi Progreso</li>
-            <li className="menu-button">Editar Perfil</li>
         </ul>
     );
 })
