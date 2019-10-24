@@ -36,9 +36,10 @@ const Classes = observer((props, { match }: any) => {
                         }
                         counter ++;
                     }
-                    let spinner:any = document.getElementById("spinner");
-                    spinner? spinner.className = "disabled": spinner=null;
-                });
+                    });
+            }).then(()=>{
+                let spinner:any = document.getElementById("spinner");
+                spinner? spinner.className = "disabled": spinner=null;
             });
         })
     }, []);
@@ -136,7 +137,7 @@ const Classes = observer((props, { match }: any) => {
                                         <span id="4" className={"status-pending check"}>{localState[3] ? "Completado" : "Pendiente"}</span>
                                         <div  className="oth-bar-item">
                                             <span  className="oth-large">Modulo 4</span><br />
-                                            <p >videos: <span>9</span></p>
+                                            <p >videos: <span>8</span></p>
                                         </div>
                                     </li>
                                     <li id="li5" onClick={handlerListElement} className="oth-bar">

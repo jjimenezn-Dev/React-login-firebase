@@ -88,7 +88,7 @@ class Quiz3 extends React.Component {
         console.log("Bad");
         try {
           let userKey = this.props.history.location.state.username ? this.props.history.location.state.username : "";            
-          this.state.history.push({ pathname: "/loading", state: { username: userKey, quiz: "3" } });
+          this.state.history.push({ pathname: "/loading", state: { username: userKey, quiz: "NA" } });
           this.state.history.go();
           } catch (error) {
             

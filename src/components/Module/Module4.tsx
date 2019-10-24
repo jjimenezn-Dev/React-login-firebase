@@ -8,7 +8,7 @@ import historyStored from '../../stores/historyStore';
 const Module4= ({ props }:any) => {
     const HistoryContextStore = useContext(historyStored);
     var Element: any = Scroll.Element;
-    const [localState, setLocalState] = useState({ 1: { active: false }, 2: { active: false }, 3: { active: false }, 4: { active: false }, 5: { active: false }, 6: { active: false }, 7: { active: false }, 8: { active: false }, 9: { active: false } });
+    const [localState, setLocalState] = useState({ 1: { active: false }, 2: { active: false }, 3: { active: false }, 4: { active: false }, 5: { active: false }, 6: { active: false }, 7: { active: false }, 8: { active: false },});
 
     function handlerClickAcordion(event: any) {
         let id: number = event.target.id;
@@ -36,9 +36,6 @@ const Module4= ({ props }:any) => {
         if (id == 8) {
             setLocalState({ ...localState, 8: { active: true } });
         }
-        if (id == 9) {
-            setLocalState({ ...localState, 9: { active: true } });
-        }
         if (event.target.nextElementSibling.children[0] && event.target.nextElementSibling.children[0].className == "active") {
             event.target.nextElementSibling.children[0].className = "panel";
         }
@@ -47,7 +44,7 @@ const Module4= ({ props }:any) => {
         }
     }
     function handlerClickQuiz(event: any) {
-        if (localState[1].active && localState[2].active && localState[3].active && localState[4].active && localState[5].active && localState[6].active && localState[7].active && localState[8].active && localState[9].active) {
+        if (localState[1].active && localState[2].active && localState[3].active && localState[4].active && localState[5].active && localState[6].active && localState[7].active && localState[8].active ) {
             try {
                 let userKey = props.history.location.state.username ? props.history.location.state.username : "";
                 HistoryContextStore.history.push({ pathname: "/quiz4", state: { username: userKey } });
@@ -143,15 +140,11 @@ const Module4= ({ props }:any) => {
                                 </Col>
                             </Row>
                             <Row>
-                                <Col id={"9"} onClick={handlerClickAcordion} className="accordion" md={12}>video 9 {localState[9].active ? <IoIosCheckmarkCircle /> : ""}</Col>
-                                <Col className="fit" md={12}>
-                                    <div className="panel">
-                                        <ReactPlayer url='www.youtube.com/watch?v=MsKRVzmOOoQ' />
-                                    </div>
-                                </Col>
-                            </Row>
-                            <Row>
                                 <Col onClick={handlerClickQuiz} className="accordion" md={12}>Quiz</Col>
+                            </Row>
+                             
+                            <Row>
+                                <Col className="accordion" md={12}> </Col>
                             </Row>
                         </Col>
                     </Row>
