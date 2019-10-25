@@ -34,13 +34,28 @@ const SignupForm= ({match}:any) => {
 
     function addUser(event: any) {
         event.preventDefault();
+        if(localState.username.length <= 10 || localState.password.length <= 5){
+            alert("correo electronico incorrecto o contraseña es menor de 5 digitos ")
+            return;
+        }
+        if(usareState.name.length == 0 || usareState.last_name.length == 0 || usareState.document_id.length === 0 ){
+            alert("Verificar que ningun campo quede vacío. ")
+            return;
+        }
         const db = firebaseContextStore.connections.firestore();
-        db.collection("users").add(usareState).then(()=>{
-            alert("Tu cuenta a sido creado exitosamente, comunicate con tu jefe para la activacionde la cuenta.");
-            HistoryContextStore.history.push("/");
-            HistoryContextStore.history.go();
-        });
-
+        try {
+        firebaseContextStore.connections.fireAuth().createUserWithEmailAndPassword(usareState.mail, localState.password).then(()=>{
+            db.collection("users").add(usareState).then(()=>{
+                alert("Tu cuenta a sido creado exitosamente, comunicate con su jefe para la activación de la cuenta.");
+                HistoryContextStore.history.push("/");
+                HistoryContextStore.history.go();
+            });
+        });            
+        } catch (error) {
+            console.log(firebaseContextStore.fireAuth);
+            
+        }
+        
     }
 
     return (

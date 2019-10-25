@@ -48,7 +48,7 @@ const LoginForm = observer(() => {
     return (
         <Container>
             <Row>
-                <Col>
+                <Col sm={12} lg={6}>
                     <div className="container-login explanation">
                         <p>Es muy fácil empezar a realizar tu curso de manejo defensivo, solo sigue estos tres sencillos pasos:</p>
                         <ul>

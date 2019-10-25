@@ -1,6 +1,16 @@
-.login-page{
-    min-width: 100%;
-    min-height: 100vh;
-    background-size: cover;
-    background-image: url("../../assets/images/background-login.jpg");
+.login-page {
+  min-width: 100%;
+  min-height: 100vh;
+  background-size: cover;
+  background-image: url("../../assets/images/background-login.jpg");
+}
+@media screen and (max-width: 993px) {
+  .login-page {
+    min-height: 150vh;
+  }
+}
+@media screen and (max-width: 500px) {
+    .login-page {
+        min-height: 180vh;
+      }
 }

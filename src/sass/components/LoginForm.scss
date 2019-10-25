@@ -1,13 +1,27 @@
-input[type=text], input[type=password] {
+.login-page {
+  .container {
+    height: 60vh;
+  }
+  .title_row {
+    max-height: 80px;
+    margin: -10px 5px;
+    padding: 0px;
+    h1 {
+      font-size: 3.5rem;
+    }
+  }
+
+  input[type="text"],
+  input[type="password"] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
-}
+  }
 
-button {
+  button {
     background-color: $info;
     color: white;
     font-weight: bolder;
@@ -16,40 +30,71 @@ button {
     border: none;
     width: 100%;
     cursor: pointer;
-}
+  }
 
-button:hover{
+  button:hover {
     background-color: $primary;
-}
+  }
 
-.container-login {
+  .container-login {
     max-width: 80%;
-    margin: 30vh auto;
+    margin: 20vh auto 0 auto;
     color: $light;
     background-color: rgba(0, 0, 0, 0.6);
     padding: 20px;
-    li{
-        padding: 15px;
-        span{
-            color: $pink;
-            font-weight: bolder;
-        }
+    li {
+      span {
+        color: $pink;
+        font-weight: bolder;
+      }
     }
-}
+  }
 
-.explanation{
-    margin: 25vh auto;
-}
+  .explanation {
+    margin: 10vh auto 0 auto;
+  }
 
-.container-signup {
+  .container-signup {
     max-width: 60%;
-    margin: 5vh auto;
+    margin: 5vh auto auto;
     color: $light;
     background-color: rgba(0, 0, 0, 0.6);
     padding: 20px;
-}
+    font-size: 1rem;
+  }
 
-span.psw {
+  span.psw {
     font-size: 0.8rem;
-    padding-top: 0  16px;
+    padding-top: 0 16px;
+  }
+  @media screen and (min-width: 1000px) {
+    .container-login {
+        max-width: 80%;
+        margin: 5vh auto 0 auto;
+        
+      }
+  }
+
+  @media screen and (max-width: 993px) {
+    .container-login {
+      max-width: 80%;
+      margin: 5vh auto 0 auto;
+      
+    }
+
+    .explanation {
+      margin: 10vh auto 0 auto;
+    }
+  }
+  @media screen and (max-width: 500px) {
+    .title_row {
+        max-height: 50px;
+        margin: -10px 5px;
+        padding: 0px;
+        h1 {
+          font-size: 2.3rem;
+        }
+      }
+  }
+
 }

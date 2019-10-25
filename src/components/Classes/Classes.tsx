@@ -14,7 +14,8 @@ const Classes = observer((props, { match }: any) => {
     var localState:boolean[] = [false,false,false,false,false,false,];
 
     useEffect(() => {
-        let userKey = props.history.location.state.username ? props.history.location.state.username : "";
+        try {
+            let userKey = props.history.location.state.username ? props.history.location.state.username : "";
         firstAsync().then(() => {
             const db = firebaseContextStore.connections.firestore();
             secondAsync(userKey, db).then(function (userRef: any) {
@@ -42,6 +43,11 @@ const Classes = observer((props, { match }: any) => {
                 spinner? spinner.className = "disabled": spinner=null;
             });
         })
+        } catch (error) {
+            
+            HistoryContextStore.history.push("/");
+            HistoryContextStore.history.go();
+        }
     }, []);
 
     async function firstAsync() {
