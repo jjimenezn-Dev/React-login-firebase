@@ -128,3 +128,29 @@ button {
 button:hover {
   background-color: $primary;
 }
+
+
+.link_certificado{
+  position: absolute;
+  left: 0;
+  background-color: $danger;
+  color: white;
+  font-weight: bolder;
+  padding: 14px 20px;
+  margin: 20px 0;
+  border: none;
+  width: 100%;
+  cursor: pointer;
+  border: solid 3px $danger;
+}
+
+
+.link_certificado:hover {
+  background-color: white;
+  color: $danger;
+  text-decoration: none;
+}
+
+.disabled{
+  display: none;
+}
