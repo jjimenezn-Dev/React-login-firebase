@@ -31,6 +31,14 @@ const AdminMenu = observer((props: any) => {
                     Users.push(user)
                     if (userKey == user.id) {
                         localState.name = `${user.name} ${user.last_name}`
+                        if (user.isAdmin === "false") {
+                            let spinner: any = document.getElementById("isAdmin");
+                            spinner ? spinner.className = "disabled" : spinner = null;
+                        }
+                        if (user.available === "false") {
+                            HistoryContextStore.history.push("/");
+                            HistoryContextStore.history.go();
+                        }
                     }
                 });
             });
@@ -47,7 +55,7 @@ const AdminMenu = observer((props: any) => {
     }
 
     return (
-        <ul>
+        <ul id="isAdmin">
             <h6 className="sub-tittle">administrador</h6>
             <li onClick={usersListHandler} className="menu-button">Usuarios</li>
         </ul>

@@ -10,6 +10,7 @@ import { observer } from 'mobx-react-lite';
 import { IoMdConstruct, IoMdPersonAdd } from 'react-icons/io';
 import historyStored from '../../stores/historyStore';
 import firebaseStore from '../../stores/firebaseStore';
+import { disconnect } from 'cluster';
 
 const Home = observer((props: any, { match }: any) => {
   const HistoryContextStore = useContext(historyStored);
@@ -185,6 +186,10 @@ const Home = observer((props: any, { match }: any) => {
     });
     return result;
   }
+  function disconnect(){
+    HistoryContextStore.history.push("/");
+    HistoryContextStore.history.go();
+  }
   return (
     <div className="users_container">
       <h1>Administración de Usuarios</h1>
@@ -195,7 +200,7 @@ const Home = observer((props: any, { match }: any) => {
       }}>
         <TableComponent
           columns={columns}
-          data={props.history.location.state.data}
+          data={props.history.location.state.data?props.history.location.state.data:disconnect()}
           loading={props.loading}
           columnsAccessor={columnsAccessor}
           searchPlaceHolder="Search person..."

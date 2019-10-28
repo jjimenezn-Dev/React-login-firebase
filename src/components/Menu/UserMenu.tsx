@@ -19,7 +19,12 @@ const UserMenu = observer((props: any) => {
     }
 
     function getName() {
-        return props.history.location.state.authName ? props.history.location.state.authName : "";
+        try {
+            return props.history.location.state.authName ? props.history.location.state.authName : "";
+        } catch (error) {
+            HistoryContextStore.history.push("/");
+            HistoryContextStore.history.go();
+        }
     }
 
     return (
