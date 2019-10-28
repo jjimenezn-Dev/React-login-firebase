@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useContext } from 'react';
 import Scroll, { Link } from 'react-scroll';
 import 'react-table/react-table.css'
 import matchSorter from 'match-sorter';
@@ -6,8 +6,15 @@ import { Column } from "react-table";
 import ReactTooltip from 'react-tooltip';
 import { Button } from "semantic-ui-react";
 import TableComponent from '../utils/tableComponent';
+import { observer } from 'mobx-react-lite';
+import { IoMdConstruct, IoMdPersonAdd } from 'react-icons/io';
+import historyStored from '../../stores/historyStore';
+import firebaseStore from '../../stores/firebaseStore';
 
-const Home = (props: any, { match }: any) => {
+const Home = observer((props: any, { match }: any) => {
+  const HistoryContextStore = useContext(historyStored);
+  const firebaseContextStore = useContext(firebaseStore);
+  var Users: any = []
   var Element: any = Scroll.Element;
   var columnsAccessor: Array<string> = [
     "Nombre",
@@ -47,16 +54,16 @@ const Home = (props: any, { match }: any) => {
           Cell: props => <span className="number">{props.value}</span>
         },
         {
-          Header: "Admin",
-          accessor: "isAdmin",
+          Header: "Activo",
+          accessor: "available",
           filterable: false,
           filterMethod: filter,
           filterAll: true,
           Cell: props => <span className="number">{props.value}</span>
         },
         {
-          Header: "Activo",
-          accessor: "available",
+          Header: "Admin",
+          accessor: "isAdmin",
           filterable: false,
           filterMethod: filter,
           filterAll: true,
@@ -72,17 +79,17 @@ const Home = (props: any, { match }: any) => {
       filterMethod: filter,
       filterAll: true,
       Cell: row => {
-        const person: any = row.original; 
+        const person: any = row.original;
         return (
           <div >
-            <Button onClick={() => { }} className="circular ui icon button">
-              <i className="icon settings" />
+            <Button key={person.id} onClick={(props: any) => { activePerson(row.original.id); }} className="circular ui icon button">
+              <h3> <IoMdPersonAdd /> </h3>
             </Button>
             <ReactTooltip id="react-toooltip-update-person" type="info" place="right">
               {"Activar Usuario"}
             </ReactTooltip>
-            <Button onClick={() => { }} className="circular ui icon button">
-              <i className="icon trash" />
+            <Button onClick={(props: any) => { activeAdmin(row.original.id) }} className="circular ui icon button">
+              <h3> <IoMdConstruct /> </h3>
             </Button>
             <ReactTooltip id="react-toooltip-delete-person" type="info" place="right">
               {"Volver usuario administrador"}
@@ -94,9 +101,82 @@ const Home = (props: any, { match }: any) => {
     },
   ];
 
-  useEffect(() => {
-    console.log(props);
-  }, []);
+  function activePerson(userId: any) {
+    firstAsync().then(() => {
+      const db = firebaseContextStore.connections.firestore();
+      secondAsync(userId, db).then(function (userRef: any) {
+        userRef.forEach(function (doc: any) {
+          console.log(doc.data());
+          if (doc.data().available == "true") {
+            db.collection('users').doc(doc.id).update({ available: "false" }).then(() => {
+              reCharge();
+            });
+          }
+          else if (doc.data().available == "false") {
+            db.collection('users').doc(doc.id).update({ available: "true" }).then(() => {
+              reCharge();
+            });
+          }
+        });
+      });
+    })
+  }
+
+  async function firstAsync() {
+    return firebaseContextStore.addConnection();;
+  }
+
+  async function secondAsync(userKey: any, db: any) {
+    return db.collection("users").where("id", "==", userKey).get();
+  }
+
+  function activeAdmin(userId: any) {
+    firstAsync().then(() => {
+      const db = firebaseContextStore.connections.firestore();
+      secondAsync(userId, db).then(function (userRef: any) {
+        userRef.forEach(function (doc: any) {
+          console.log(doc.data());
+          if (doc.data().isAdmin == "true") {
+            db.collection('users').doc(doc.id).update({ isAdmin: "false" }).then(() => {
+              reCharge();
+            });
+          }
+          else if (doc.data().isAdmin == "false") {
+            db.collection('users').doc(doc.id).update({ isAdmin: "true" }).then(() => {
+              reCharge();
+            });
+          }
+        });
+      });
+    })
+  }
+
+
+
+  function reCharge() {
+    let userKey = props.history.location.state.username ? props.history.location.state.username : "";
+    let authName = props.history.location.state.authName ? props.history.location.state.authName : "";
+    firstDataAsync().then(() => {
+      const db = firebaseContextStore.connections.firestore();
+      secondDataAsync(userKey, db).then(function (userRef: any) {
+        userRef.forEach(function (doc: any) {
+          let user = doc.data();
+          Users.push(user)
+        });
+      }).then(() => {
+        HistoryContextStore.history.push({ pathname: "/usuarios", state: { authName: authName, username: userKey, data: Users } });
+        HistoryContextStore.history.go();
+      });
+    })
+  }
+
+  async function firstDataAsync() {
+    return firebaseContextStore.addConnection();;
+  }
+
+  async function secondDataAsync(userKey: any, db: any) {
+    return db.collection("users").get();
+  }
 
   function filter(filter: any, rows: any) {
     const result = matchSorter(rows, filter.value, {
@@ -124,6 +204,6 @@ const Home = (props: any, { match }: any) => {
       </Element>
     </div>
   );
-}
+})
 
 export default Home;
