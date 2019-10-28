@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { observer } from 'mobx-react-lite';
 import historyStored from '../../stores/historyStore';
 import firebaseStore from '../../stores/firebaseStore';
@@ -6,12 +6,14 @@ import firebaseStore from '../../stores/firebaseStore';
 const AdminMenu = observer((props: any) => {
     const HistoryContextStore = useContext(historyStored);
     const firebaseContextStore = useContext(firebaseStore);
-    var Users:any = []
+    var Users: any = []
+    const [localState, setLocalState] = useState({ name: "", });
 
     function usersListHandler(event: any) {
         try {
             let userKey = props.history.location.state.username ? props.history.location.state.username : "";
-            HistoryContextStore.history.push({ pathname: "/usuarios", state: { username: userKey, data: Users } });
+            let authName = props.history.location.state.authName ? props.history.location.state.authName : "";
+            HistoryContextStore.history.push({ pathname: "/usuarios", state: { authName: authName, username: userKey, data: Users } });
             HistoryContextStore.history.go();
         } catch (error) {
             HistoryContextStore.history.push("/");
@@ -27,18 +29,21 @@ const AdminMenu = observer((props: any) => {
                 userRef.forEach(function (doc: any) {
                     let user = doc.data();
                     Users.push(user)
+                    if (userKey == user.id) {
+                        localState.name = `${user.name} ${user.last_name}`
+                    }
                 });
             });
         })
     }, []);
 
-    
+
     async function firstAsync() {
         return firebaseContextStore.addConnection();;
     }
 
     async function secondAsync(userKey: any, db: any) {
-        return db.collection("users").where("id", "==", userKey).get();
+        return db.collection("users").get();
     }
 
     return (

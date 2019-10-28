@@ -55,7 +55,8 @@ class Quiz6 extends React.Component {
           console.log("congrats");
           try {
             let userKey = this.props.history.location.state.username ? this.props.history.location.state.username : "";            
-            this.state.history.push({ pathname: "/loading", state: { username: userKey, quiz: "6" } });
+            let authName = this.props.history.location.state.authName ? this.props.history.location.state.authName : "";
+            this.state.history.push({ pathname: "/loading", state: {authName: authName, username: userKey, quiz: "6" } });
             this.state.history.go();
             } catch (error) {
               
@@ -68,7 +69,8 @@ class Quiz6 extends React.Component {
         console.log("Bad");
         try {
           let userKey = this.props.history.location.state.username ? this.props.history.location.state.username : "";            
-          this.state.history.push({ pathname: "/loading", state: { username: userKey, quiz: "NA" } });
+          let authName = this.props.history.location.state.authName ? this.props.history.location.state.authName : "";
+          this.state.history.push({ pathname: "/loading", state: {authName: authName, username: userKey, quiz: "NA" } });
           this.state.history.go();
           } catch (error) {
             

@@ -28,11 +28,7 @@ const HomePage = observer((props: any, { match }: any) => {
   const HistoryContextStore = useContext(historyStored);
   const firebaseContextStore = useContext(firebaseStore);
 
-  const [localState, setLocalState] = useState({ name: "Juan Sebastian", last_name: "Jimenez Nieto", id: "" });
-  
-  function handleNameChange(event: any) {
-    setLocalState({ ...localState, name: event.target.value });
-  }
+  const [localState, setLocalState] = useState({ id: "" });
 
   useEffect(() => {
     if (!firebaseContextStore.fireAuth) {
@@ -55,11 +51,8 @@ const HomePage = observer((props: any, { match }: any) => {
             <div className="logo_img">
               <img onClick={handlerLogo} src={logo} alt="Curso de Manejo Defensivo." />
             </div>
-            <div className="ligh-font">
-              <h3>Bienvenido</h3> <h4>{`${localState.name} ${localState.last_name}`}</h4>
-            </div>
-            <div className="welcome-message"></div>
-            <UserMenu {...props}/>
+
+            <UserMenu {...props} />
             <AdminMenu {...props} />
             <SignOutButton />
           </Col>

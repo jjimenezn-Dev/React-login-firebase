@@ -44,7 +44,8 @@ const SignupForm= ({match}:any) => {
         }
         const db = firebaseContextStore.connections.firestore();
         try {
-        firebaseContextStore.connections.fireAuth().createUserWithEmailAndPassword(usareState.mail, localState.password).then(()=>{
+        firebaseContextStore.connections.auth().createUserWithEmailAndPassword(usareState.mail, localState.password).then((newUser:any)=>{
+            usareState.id = newUser.user.uid;
             db.collection("users").add(usareState).then(()=>{
                 alert("Tu cuenta a sido creado exitosamente, comunicate con su jefe para la activación de la cuenta.");
                 HistoryContextStore.history.push("/");
@@ -52,7 +53,7 @@ const SignupForm= ({match}:any) => {
             });
         });            
         } catch (error) {
-            console.log(firebaseContextStore.fireAuth);
+            console.log("Error en conexión");
             
         }
         

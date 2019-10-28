@@ -36,7 +36,8 @@ const Module1 = ({ props }: any) => {
         if (localState[1].active && localState[2].active && localState[3].active && localState[4].active) {
             try {
                 let userKey = props.history.location.state.username ? props.history.location.state.username : "";
-                HistoryContextStore.history.push({ pathname: "/quiz1", state: { username: userKey } });
+                let authName = props.history.location.state.authName ? props.history.location.state.authName : "";
+                HistoryContextStore.history.push({ pathname: "/quiz1", state: { authName: authName, username: userKey } });
                 HistoryContextStore.history.go();
             } catch (error) {
                 HistoryContextStore.history.push("/");

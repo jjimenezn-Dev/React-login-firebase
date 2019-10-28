@@ -81,7 +81,8 @@ const Classes = observer((props, { match }: any) => {
         }
         try {
             let userKey = props.history.location.state.username ? props.history.location.state.username : "";
-            HistoryContextStore.history.push({ pathname: dir, state: { username: userKey } });
+            let authName = props.history.location.state.authName ? props.history.location.state.authName : "";
+            HistoryContextStore.history.push({ pathname: dir, state: { authName: authName, username: userKey } });
             HistoryContextStore.history.go();
         } catch (error) {
             HistoryContextStore.history.push("/");
@@ -111,27 +112,27 @@ const Classes = observer((props, { match }: any) => {
                             <Col>
                                 <ul className="oth-ul oth-card-4">
                                     <li id="li1" onClick={handlerListElement} className="oth-bar">
-                                        <p  className="roman bg oth-bar-item oth-circle oth-hide-small">I</p>
+                                        <p id="li1" className="roman bg oth-bar-item oth-circle oth-hide-small">I</p>
                                         <span id="1" className={"status-pending check"}>{localState[0] ? "Completado" : "Pendiente"}</span>
-                                        <div  className="oth-bar-item">
-                                            <span  className="oth-large">Modulo 1</span>
-                                            <p >videos: <span>4</span></p>
+                                        <div id="li1" className="oth-bar-item">
+                                            <span id="li1" className="oth-large">Modulo 1</span>
+                                            <p id="li1">videos: <span>4</span></p>
                                         </div>
                                     </li>
                                     <li id="li2" onClick={handlerListElement} className="oth-bar">
-                                        <p  className="roman bg oth-bar-item oth-circle oth-hide-small">II</p>
+                                        <p id="li2" className="roman bg oth-bar-item oth-circle oth-hide-small">II</p>
                                         <span id="2" className={"status-pending check"}>{localState[1] ? "Completado" : "Pendiente"}</span>
-                                        <div  className="oth-bar-item">
-                                            <span  className="oth-large">Modulo 2</span><br />
-                                            <p >videos: <span>5</span></p>
+                                        <div id="li2" className="oth-bar-item">
+                                            <span id="li2" className="oth-large">Modulo 2</span><br />
+                                            <p id="li2">videos: <span>5</span></p>
                                         </div>
                                     </li>
                                     <li id="li3" onClick={handlerListElement} className="oth-bar">
-                                        <p  className="roman bg oth-bar-item oth-circle oth-hide-small">III</p>
+                                        <p id="li3" className="roman bg oth-bar-item oth-circle oth-hide-small">III</p>
                                         <span id="3" className={"status-pending check"}>{localState[2] ? "Completado" : "Pendiente"}</span>
-                                        <div  className="oth-bar-item">
-                                            <span  className="oth-large">Modulo 3</span><br />
-                                            <p >videos: <span>4</span></p>
+                                        <div id="li3" className="oth-bar-item">
+                                            <span id="li3" className="oth-large">Modulo 3</span><br />
+                                            <p id="li3">videos: <span>4</span></p>
                                         </div>
                                     </li>
                                 </ul>
@@ -139,27 +140,27 @@ const Classes = observer((props, { match }: any) => {
                             <Col>
                                 <ul className="oth-ul oth-card-4">
                                     <li id="li4" onClick={handlerListElement} className="oth-bar">
-                                        <p  className="roman bg oth-bar-item oth-circle oth-hide-small">IV</p>
+                                        <p id="li4" className="roman bg oth-bar-item oth-circle oth-hide-small">IV</p>
                                         <span id="4" className={"status-pending check"}>{localState[3] ? "Completado" : "Pendiente"}</span>
-                                        <div  className="oth-bar-item">
-                                            <span  className="oth-large">Modulo 4</span><br />
-                                            <p >videos: <span>8</span></p>
+                                        <div id="li4" className="oth-bar-item">
+                                            <span id="li4" className="oth-large">Modulo 4</span><br />
+                                            <p id="li4">videos: <span>8</span></p>
                                         </div>
                                     </li>
                                     <li id="li5" onClick={handlerListElement} className="oth-bar">
-                                        <p  className="roman bg oth-bar-item oth-circle oth-hide-small">V</p>
+                                        <p id="li5" className="roman bg oth-bar-item oth-circle oth-hide-small">V</p>
                                         <span id="5" className={"status-pending check"}>{localState[4] ? "Completado" : "Pendiente"}</span>
-                                        <div  className="oth-bar-item">
-                                            <span  className="oth-large">Modulo 5</span><br />
-                                            <p >videos: <span>9</span></p>
+                                        <div id="li5" className="oth-bar-item">
+                                            <span id="li5" className="oth-large">Modulo 5</span><br />
+                                            <p id="li5">videos: <span>9</span></p>
                                         </div>
                                     </li>
                                     <li id="li6" onClick={handlerListElement} className="oth-bar">
-                                        <p  className="roman bg oth-bar-item oth-circle oth-hide-small">VI</p>
+                                        <p id="li6" className="roman bg oth-bar-item oth-circle oth-hide-small">VI</p>
                                         <span id="6" className={"status-pending check"}>{localState[5] ? "Completado" : "Pendiente"}</span>
-                                        <div  className="oth-bar-item">
-                                            <span  className="oth-large">Modulo 6</span><br />
-                                            <p  >videos: <span>3</span></p>
+                                        <div id="li6" className="oth-bar-item">
+                                            <span id="li6" className="oth-large">Modulo 6</span><br />
+                                            <p  id="li6">videos: <span>3</span></p>
                                         </div>
                                     </li>
                                 </ul>

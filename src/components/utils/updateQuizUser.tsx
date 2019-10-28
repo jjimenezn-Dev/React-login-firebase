@@ -10,8 +10,9 @@ const updateQuizUser = observer((props: any) => {
     useEffect(() => {
         let userKey = props.history.location.state.username ? props.history.location.state.username : "";
         let Quiz = props.history.location.state.username ? props.history.location.state.quiz : "";
+        let authName = props.history.location.state.authName ? props.history.location.state.authName : "";
         if (Quiz == "NA") {
-            HistoryContextStore.history.push({ pathname: "/home", state: { username: userKey } });
+            HistoryContextStore.history.push({ pathname: "/home", state: { authName: authName, username: userKey } });
             HistoryContextStore.history.go();
         }
         else {
@@ -26,7 +27,7 @@ const updateQuizUser = observer((props: any) => {
                         curses = JSON.stringify(json);
 
                         db.collection('users').doc(doc.id).update({ courses: curses }).then(() => {
-                            HistoryContextStore.history.push({ pathname: "/home", state: { username: userKey } });
+                            HistoryContextStore.history.push({ pathname: "/home", state: { authName: authName, username: userKey } });
                             HistoryContextStore.history.go();
                         });
                     });

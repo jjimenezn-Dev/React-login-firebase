@@ -108,6 +108,23 @@ a {
   right: 0;
   bottom: 0;
 }
+
 .logout_button:hover {
   background-color: $dark;
+}
+
+
+button {
+  background-color: $info;
+  color: white;
+  font-weight: bolder;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  width: 100%;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: $primary;
 }

@@ -16,13 +16,34 @@ const LoginForm = observer(() => {
         doSignInWithEmailAndPassword(localState.username, localState.password);
     }
 
+    async function firstAsync() {
+        return firebaseContextStore.addConnection();;
+    }
+
+    async function secondAsync(userKey: any, db: any) {
+        return db.collection("users").get();
+    }
+
     function doSignInWithEmailAndPassword(email: string, password: string) {
         try {
             firebaseContextStore.fireAuth[0].signInWithEmailAndPassword(email, password)
                 .then(function (user: any) {
-                    HistoryContextStore.history.push({ pathname: "/home", state: { username: firebaseContextStore.fireAuth[0].W ? `${firebaseContextStore.fireAuth[0].W}` : "none" } });
-                    HistoryContextStore.history.go();
-                    //juan_jimenezn@hotmail.com
+                    firstAsync().then(() => {
+                        const db = firebaseContextStore.connections.firestore();
+                        let userKey = firebaseContextStore.fireAuth[0].W ? `${firebaseContextStore.fireAuth[0].W}` : "none";
+                        secondAsync(userKey, db).then(function (userRef: any) {
+                            userRef.forEach(function (doc: any) {
+                                let user = doc.data();
+                                if (userKey == user.id) {
+                                    let authName = `${user.name} ${user.last_name}`
+                                    HistoryContextStore.history.push({ pathname: "/home", state: { authName: authName, username: userKey } });
+                                    HistoryContextStore.history.go();
+                                    //juan_jimenezn@hotmail.com
+                                }
+                            });
+                        });
+                    })
+
                 })
                 .catch(function (error: any) {
                     //alert("Error al iniciar sesión");
