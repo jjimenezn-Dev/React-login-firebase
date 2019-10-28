@@ -68,7 +68,7 @@ const Module6= ({ props }:any) => {
                                 <Col id={"1"} onClick={handlerClickAcordion} className="accordion" md={12}>video 1 {localState[1].active ? <IoIosCheckmarkCircle /> : ""}</Col>
                                 <Col className="fit" md={12}>
                                     <div className="panel">
-                                        <ReactPlayer url='https://youtu.be/sDdXzdxzas8' />
+                                        <ReactPlayer url='https://youtu.be/sDdXzdxzas8' config={{ youtube: { playerVars: { disablekb: 1 } } }}/>
                                     </div>
                                 </Col>
                             </Row>
@@ -76,7 +76,7 @@ const Module6= ({ props }:any) => {
                                 <Col id={"2"} onClick={handlerClickAcordion} className="accordion" md={12}>video 2 {localState[2].active ? <IoIosCheckmarkCircle /> : ""}</Col>
                                 <Col className="fit" md={12}>
                                     <div className="panel">
-                                        <ReactPlayer url='https://youtu.be/11F7YYtRg5M' />
+                                        <ReactPlayer url='https://youtu.be/11F7YYtRg5M' config={{ youtube: { playerVars: { disablekb: 1 } } }}/>
                                     </div>
                                 </Col>
                             </Row>
@@ -86,7 +86,7 @@ const Module6= ({ props }:any) => {
                                 <Col id={"3"} onClick={handlerClickAcordion} className="accordion" md={12}>video 3 {localState[3].active ? <IoIosCheckmarkCircle /> : ""}</Col>
                                 <Col className="fit" md={12}>
                                     <div className="panel">
-                                        <ReactPlayer url='https://youtu.be/D3tDDvipux0' />
+                                        <ReactPlayer url='https://youtu.be/D3tDDvipux0' config={{ youtube: { playerVars: { disablekb: 1 } } }}/>
                                     </div>
                                 </Col>
                             </Row>

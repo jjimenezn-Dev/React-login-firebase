@@ -82,7 +82,7 @@ const Module5= ({ props }:any) => {
                                 <Col id={"1"} onClick={handlerClickAcordion} className="accordion" md={12}> video 1 {localState[1].active ? <IoIosCheckmarkCircle /> : ""}</Col>
                                 <Col className="fit" md={12}>
                                     <div className="panel">
-                                        <ReactPlayer url='https://youtu.be/GNNaa1R8XSQ' />
+                                        <ReactPlayer url='https://youtu.be/GNNaa1R8XSQ' config={{ youtube: { playerVars: { disablekb: 1 } } }}/>
                                     </div>
                                 </Col>
                             </Row>
@@ -90,7 +90,7 @@ const Module5= ({ props }:any) => {
                                 <Col id={"2"} onClick={handlerClickAcordion} className="accordion" md={12}>video 2  {localState[2].active ? <IoIosCheckmarkCircle /> : ""}</Col>
                                 <Col className="fit" md={12}>
                                     <div className="panel">
-                                        <ReactPlayer url='https://youtu.be/YxHuemiPIQs' />
+                                        <ReactPlayer url='https://youtu.be/YxHuemiPIQs' config={{ youtube: { playerVars: { disablekb: 1 } } }}/>
                                     </div>
                                 </Col>
                             </Row>
@@ -98,7 +98,7 @@ const Module5= ({ props }:any) => {
                                 <Col id={"3"} onClick={handlerClickAcordion} className="accordion" md={12}>video 3 {localState[3].active ? <IoIosCheckmarkCircle /> : ""}</Col>
                                 <Col className="fit" md={12}>
                                     <div className="panel">
-                                        <ReactPlayer url='https://youtu.be/rrhGM0McTmo' />
+                                        <ReactPlayer url='https://youtu.be/rrhGM0McTmo' config={{ youtube: { playerVars: { disablekb: 1 } } }}/>
                                     </div>
                                 </Col>
                             </Row>
@@ -106,7 +106,7 @@ const Module5= ({ props }:any) => {
                                 <Col id={"4"} onClick={handlerClickAcordion} className="accordion" md={12}>video 4 {localState[4].active ? <IoIosCheckmarkCircle /> : ""}</Col>
                                 <Col className="fit" md={12}>
                                     <div className="panel">
-                                        <ReactPlayer url='https://youtu.be/J_ZNw3q2icc' />
+                                        <ReactPlayer url='https://youtu.be/J_ZNw3q2icc' config={{ youtube: { playerVars: { disablekb: 1 } } }}/>
                                     </div>
                                 </Col>
                             </Row>
@@ -114,7 +114,7 @@ const Module5= ({ props }:any) => {
                                 <Col id={"5"} onClick={handlerClickAcordion} className="accordion" md={12}>video 5 {localState[5].active ? <IoIosCheckmarkCircle /> : ""}</Col>
                                 <Col className="fit" md={12}>
                                     <div className="panel">
-                                        <ReactPlayer url='https://youtu.be/84QkSoYjFh8' />
+                                        <ReactPlayer url='https://youtu.be/84QkSoYjFh8' config={{ youtube: { playerVars: { disablekb: 1 } } }}/>
                                     </div>
                                 </Col>
                             </Row>
@@ -124,7 +124,7 @@ const Module5= ({ props }:any) => {
                                 <Col id={"6"} onClick={handlerClickAcordion} className="accordion" md={12}>video 6 {localState[6].active ? <IoIosCheckmarkCircle /> : ""}</Col>
                                 <Col className="fit" md={12}>
                                     <div className="panel">
-                                        <ReactPlayer url='https://youtu.be/6wRV0gqfTms' />
+                                        <ReactPlayer url='https://youtu.be/6wRV0gqfTms' config={{ youtube: { playerVars: { disablekb: 1 } } }}/>
                                     </div>
                                 </Col>
                             </Row>
@@ -133,7 +133,7 @@ const Module5= ({ props }:any) => {
                                 <Col id={"7"} onClick={handlerClickAcordion} className="accordion" md={12}>video 7 {localState[7].active ? <IoIosCheckmarkCircle /> : ""}</Col>
                                 <Col className="fit" md={12}>
                                     <div className="panel">
-                                        <ReactPlayer url='https://youtu.be/e-dLUG8xw8U' />
+                                        <ReactPlayer url='https://youtu.be/e-dLUG8xw8U' config={{ youtube: { playerVars: { disablekb: 1 } } }}/>
                                     </div>
                                 </Col>
                             </Row>
@@ -142,7 +142,7 @@ const Module5= ({ props }:any) => {
                                 <Col id={"8"} onClick={handlerClickAcordion} className="accordion" md={12}>video 8 {localState[8].active ? <IoIosCheckmarkCircle /> : ""}</Col>
                                 <Col className="fit" md={12}>
                                     <div className="panel">
-                                        <ReactPlayer url='https://youtu.be/-x_BFtl4ps4' />
+                                        <ReactPlayer url='https://youtu.be/-x_BFtl4ps4' config={{ youtube: { playerVars: { disablekb: 1 } } }}/>
                                     </div>
                                 </Col>
                             </Row>
@@ -151,7 +151,7 @@ const Module5= ({ props }:any) => {
                                 <Col id={"9"} onClick={handlerClickAcordion} className="accordion" md={12}>video 9 {localState[9].active ? <IoIosCheckmarkCircle /> : ""}</Col>
                                 <Col className="fit" md={12}>
                                     <div className="panel">
-                                        <ReactPlayer className="reactPlayer" url='https://youtu.be/jKdZh_n_xqw' />
+                                        <ReactPlayer className="reactPlayer" url='https://youtu.be/jKdZh_n_xqw' config={{ youtube: { playerVars: { disablekb: 1 } } }}/>
                                     </div>
                                 </Col>
                             </Row>
