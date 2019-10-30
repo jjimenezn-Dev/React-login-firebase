@@ -47,7 +47,7 @@ const SignupForm= ({match}:any) => {
         firebaseContextStore.connections.auth().createUserWithEmailAndPassword(usareState.mail, localState.password).then((newUser:any)=>{
             usareState.id = newUser.user.uid;
             db.collection("users").add(usareState).then(()=>{
-                alert("Tu cuenta a sido creado exitosamente, comunicate con su jefe para la activación de la cuenta.");
+                alert("Tu cuenta ha sido creada, escribe un correo a cursomanejo.info@gmail.com solicitando la activación de tu curso y en unas horas estará disponible para que empieces a realizarlo.");
                 HistoryContextStore.history.push("/");
                 HistoryContextStore.history.go();
             });

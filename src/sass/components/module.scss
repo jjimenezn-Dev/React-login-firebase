@@ -26,7 +26,13 @@
 
   .active{
     div{
+      height: 63vh!important;
       width: 100%!important;
+    }.bloqued{
+      position: absolute;
+      background-color: none;
+      z-index: 9999999999;
+      height: 10vh!important;
     }
   }
 
@@ -51,4 +57,5 @@
   .fit{
     padding: 0!important;
   }
+  
 }

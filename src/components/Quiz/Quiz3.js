@@ -18,12 +18,12 @@ class Quiz3 extends React.Component {
         correct: 0
       },
       {
-        question: "        ◦ Dentro del manejo preventivo de conductores ¿Cuáles son los aspectos principales al hacer una revisión general del vehículo?",
+        question: "Dentro del manejo preventivo de conductores ¿Cuáles son los aspectos principales al hacer una revisión general del vehículo?",
         answers: [
-          "            A. Luces, Presión de llantas, pastillas de frenos",
-          "            B. Luces, labrado de las llantas, estado de la suspensión",
-          "            C. Labrado de las llantas, Pastillas de frenos, Estado del escape",
-          "            D. Estado del líquido refrigerante, estado de líquido de frenos, estado del motor"
+          "A. Luces, Presión de llantas, labrado de las llantas",
+          "B. Luces, labrado de las llantas, estado de la suspensión",
+          "C. Labrado de las llantas, Pastillas de frenos, Estado del escape",
+          "D. Estado del líquido refrigerante, estado de líquido de frenos, estado del motor"
         ],
         correct: 0
       },

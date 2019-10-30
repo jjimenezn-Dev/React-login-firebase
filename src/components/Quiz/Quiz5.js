@@ -1,52 +1,92 @@
 
-import React from 'react';
+import React, { useContext } from 'react';
 import { createBrowserHistory } from "history";
 
 class Quiz5 extends React.Component {
     constructor(props) {
       super(props)
-      
-      var dataSet = [
+
+  var dataSet = [
         {
-          question: "La prueba o examen de laboratorio que determina la cantidad de Alcohol etílico que una persona tiene en la sangre se llama:",
+          question: "¿Cuales son las partes principales de un motor a gasolina?",
           answers: [
-            "A. Alcoholuria",
-            "B. Alcoholimetría",
-            "C. Alcoholemia",
-            "D. Embriaguez"
+            "A. Culata, Exosto, Bloque",
+            "B. Culata, Balinera, Prensa",
+            "C. Bloque, Carter, Prensa",
+            "D. Culata, Bloque, Carter"
           ],
-          correct: 0
+          correct: 3
         },
         {
-          question: "¿Cuál de las siguientes opciones NO es un requisito para conducir un vehículo de servicio público?",
+          question: "¿Qué dispositivos del sistema de refrigeración se encienden solo cuando es necesario?",
               answers: [
-                "A. Saber leer y escribir",
-                "B. Aprobar un examen teórico-práctico",
-                "C. Certificado de aptitud física, y mental",
-                "D. Tener 16 años cumplidos"
+                "A. Sensores",
+                "B. Termostato",
+                "C. Radiador",
+                "D. Electro veltiladores"
               ],
               correct: 3
         },
          {
-              question: "De las siguientes opciones, ¿Cual es una prohibición especial para adelantar vehículos?",
+              question: "¿Qué tipos de aceites existen para la lubricación del motor?",
               answers: [
-                "A. En intersecciones",
-                "B. En curvas o pendientes",
-                "C. En zonas residenciales",
-                "D. Por la izquierda de un vehículo"
+                "A. Sintéticos, ultra sintéticos, Minerales",
+                "B. Minerales, Sintéticos, Semisintéticos",
+                "C. Semisintéticos, Sintéticos, ultra sintéticos",
+                "D. Minerales tipo A, Minerales tipo B, Minerales tipo C"
               ],
               correct: 1
             },
             {
-              question: "¿Cuáles de las siguientes opciones NO es un tipo de sanción?",
+              question: "Según la clasificación de aceites por viscosidad existen de diferentes tipos: ",
               answers: [
-                "A. Amonestación",
-                "B. Retención preventiva del vehículo",
-                "C. Comparendo pedagógico",
-                "D. Inmovilización del vehículo"
+                "A. Monogrados, centígrados",
+                "B. Homogrados, Monogrados",
+                "C. Monogrados, Multígrados",
+                "D. Multígrados, Unigrados."
               ],
               correct: 2
             },
+            {
+              question: "¿Cuáles son los elementos principales del sistema de escape?",
+              answers: [
+                "A. Catalizador, Sensor de Oxígeno, Silenciador",
+                "B. Catalizador, Prensa, Bloque",
+                "C. Silenciador, Balinera, Sensor de contaminación",
+                "D. Silenciador, Sensor de Oxígeno, Inyección electrónica, Catalizador"
+              ],
+              correct: 0
+            },
+            {
+              question: "¿Qué tipos de transmisiones existen?",
+              answers: [
+                "A. Mecánica, Asistida",
+                "B. Mecánica, Electro asistida",
+                "C. Electrónica, Asistida",
+                "D. Mecánica, Automática"
+              ],
+              correct: 3
+            },
+            {
+              question: "Algunas partes del sistema de suspensión son:",
+              answers: [
+                "A. Bujes, Espiral, Rotula, Tijeras",
+                "B. Brazos, amortiguador, bloque",
+                "C. Amortiguador, Barra estabilizadora, Brazo axial, Cadenilla",
+                "D. Espiral, Bujes, cadeneta",
+              ],
+              correct: 0
+            },
+            {
+              question: "El elemento encargado de moverse y ejercer presión sobre el disco en el sistema de frenos es:",
+              answers: [
+                "A. Mordazas",
+                "B. Pastillas",
+                "C. Liquido de aceite",
+                "D. Disco de frenos"
+              ],
+              correct: 0
+            }
       ];
       
       this.state = {current:0, dataSet:dataSet, correct:0, incorrect:0, history :createBrowserHistory()}
@@ -61,26 +101,26 @@ class Quiz5 extends React.Component {
         this.setState({incorrect: this.state.incorrect + 1})
       }
       
-      if (this.state.current === 3 && this.state.incorrect === 0) {
+      if (this.state.current === 7 && this.state.incorrect === 0) {
           console.log("congrats");
           try {
-            let userKey = this.props.history.location.state.username ? this.props.history.location.state.username : "";            
-            let authName = this.props.history.location.state.authName ? this.props.history.location.state.authName : "";
-            this.state.history.push({ pathname: "/loading", state: { authName: authName, username: userKey, quiz: "5" } });
+          let userKey = this.props.history.location.state.username ? this.props.history.location.state.username : "";            
+          let authName = this.props.history.location.state.authName ? this.props.history.location.state.authName : "";
+          this.state.history.push({ pathname: "/loading", state: { authName: authName, username: userKey, quiz: "1" } });
+          this.state.history.go();
+          } catch (error) {
+            
+            this.state.history.push("/");
             this.state.history.go();
-            } catch (error) {
-              
-              this.state.history.push("/");
-              this.state.history.go();
-            }
+          }
           
       } 
-      else if (this.state.current === 3 && this.state.incorrect > 0) {
+      else if (this.state.current === 7 && this.state.incorrect > 0) {
         console.log("Bad");
         try {
           let userKey = this.props.history.location.state.username ? this.props.history.location.state.username : "";            
           let authName = this.props.history.location.state.authName ? this.props.history.location.state.authName : "";
-          this.state.history.push({ pathname: "/loading", state: { authName: authName, username: userKey, quiz: "NA" } });
+          this.state.history.push({ pathname: "/loading", state: {authName: authName, username: userKey, quiz: "NA" } });
           this.state.history.go();
           } catch (error) {
             
@@ -157,7 +197,7 @@ class Quiz5 extends React.Component {
     return(
       <div className="score_area" >
         <div className="class_banner">
-                <h1>Quiz Modulo 5</h1>
+                <h1>Quiz Modulo 1</h1>
             </div>
         <TotalCorrect correct={props.correct} />
         <TotalIncorrect incorrect={props.incorrect} />
