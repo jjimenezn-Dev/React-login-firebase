@@ -96,6 +96,12 @@ const Classes = observer((props, { match }: any) => {
         }
 
     }
+    function getAuthName(){
+        let authName = props.history.location.state.authName ? props.history.location.state.authName : "";
+        if(authName){
+            return authName
+        }
+    }
 
     return (
 
@@ -173,7 +179,7 @@ const Classes = observer((props, { match }: any) => {
                                     </ul>
                                 </Col>
                                 <Col id="download" md={12}>
-                                    <Download />
+                                    <Download name={getAuthName()} />
                                 </Col>
                             </Row>
                         </Container>

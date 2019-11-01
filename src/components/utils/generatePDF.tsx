@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import ReactPDF, { PDFDownloadLink, Document, Page, Text, View, StyleSheet } from '@react-pdf/renderer'
+import ReactPDF, { PDFDownloadLink, Document, Page, Text, View, StyleSheet, Image } from '@react-pdf/renderer'
 
 const styles = StyleSheet.create({
   page: {
@@ -7,25 +7,39 @@ const styles = StyleSheet.create({
     backgroundColor: '#E4E4E4'
   },
   section: {
-    margin: 10,
-    padding: 10,
-    flexGrow: 1
-  }
+    position: 'absolute',
+    top: "65%",
+    left: "7%",
+    width:"100%",
+    color:"#fff"
+  },
+  image: {
+    position: 'absolute',
+    top: "0",
+    left: "0",
+    right: "0",
+    bottom: "0",
+    width: '100%',
+    
+  },
 });
 
-const MyDoc = () => (
+const MyDoc = ({name}:any) => (
   <Document>
-    <Page>
+    <Page size={[900, 480]} >
+      <View style={styles.image}>
+        <Image src="certificado.jpg"/>
+      </View>
       <View style={styles.section}>
-        <Text>Felicidades por completar el curso!</Text>
+        <Text>{name}</Text>
       </View>
     </Page>
   </Document>
 )
 
-const Download = () => (
+const Download = ({name}:any) => (
   <div>
-    <PDFDownloadLink className="disabled" document={<MyDoc />} fileName="certificado.pdf">
+    <PDFDownloadLink className="disabled" document={<MyDoc name={name} />} fileName="certificado.pdf">
       {({ blob, url, loading, error }) => (loading ? 'Cargando documento...' : 'Certificado!')}
     </PDFDownloadLink>
   </div>
