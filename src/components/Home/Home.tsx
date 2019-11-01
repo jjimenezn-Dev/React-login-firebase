@@ -60,7 +60,7 @@ const Home = observer((props: any, { match }: any) => {
           filterable: false,
           filterMethod: filter,
           filterAll: true,
-          Cell: props => <span className="number">{props.value}</span>
+          Cell: props => <span className="number">{props.value === "true"? "si" : "no"}</span>
         },
         {
           Header: "Admin",
@@ -68,10 +68,17 @@ const Home = observer((props: any, { match }: any) => {
           filterable: false,
           filterMethod: filter,
           filterAll: true,
-          Cell: props => <span className="number">{props.value}</span>
+          Cell: props => <span className="number">{props.value === "true"? "si" : "no"}</span>
+        },
+        {
+          Header: "Curso completado",
+          accessor: "courses",
+          filterable: false,
+          filterMethod: filter,
+          filterAll: true,
+          Cell: props => <span className="number">{validatedCourses(props.value) === true? "si" : "no"}</span>
         },
       ]
-
     },
     {
       Header: "Actions",
@@ -123,6 +130,21 @@ const Home = observer((props: any, { match }: any) => {
     })
   }
 
+
+  function validatedCourses(courses:any){
+    let course:any = new Object(JSON.parse(courses));
+    console.log(course);
+    
+    let allComplete = true;
+    for (const iterator in course) {
+      
+      if(!course[iterator]){
+        allComplete = false;
+      } 
+    }
+    return allComplete;
+  }
+  
   async function firstAsync() {
     return firebaseContextStore.addConnection();;
   }
