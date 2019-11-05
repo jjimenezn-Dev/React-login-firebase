@@ -66,7 +66,7 @@ class Quiz1 extends React.Component {
           try {
             let userKey = this.props.history.location.state.username ? this.props.history.location.state.username : "";            
             let authName = this.props.history.location.state.authName ? this.props.history.location.state.authName : "";
-            this.state.history.push({ pathname: "/loading", state: { authName: authName, username: userKey, quiz: "5" } });
+            this.state.history.push({ pathname: "/loading", state: { authName: authName, username: userKey, quiz: "1" } });
             this.state.history.go();
             } catch (error) {
               
@@ -157,7 +157,7 @@ class Quiz1 extends React.Component {
     return(
       <div className="score_area" >
         <div className="class_banner">
-                <h1>Quiz Modulo 5</h1>
+                <h1>Quiz Modulo 1</h1>
             </div>
         <TotalCorrect correct={props.correct} />
         <TotalIncorrect incorrect={props.incorrect} />
