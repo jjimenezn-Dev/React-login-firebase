@@ -7,6 +7,7 @@
     max-height: 80px;
     margin: -10px 5px;
     padding: 0px;
+    display: none;
     h1 {
       font-size: 3.5rem;
     }
@@ -26,7 +27,7 @@
     max-width: 80%;
     margin: 20vh auto 0 auto;
     color: $light;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.8);
     padding: 20px;
     li {
       span {
@@ -38,6 +39,7 @@
 
   .explanation {
     margin: 10vh auto 0 auto;
+    display: none;
   }
 
   .container-signup {
@@ -55,32 +57,31 @@
   }
   @media screen and (min-width: 1000px) {
     .container-login {
-        max-width: 80%;
-        margin: 5vh auto 0 auto;
-        
-      }
+      max-width: 80%;
+      margin: 10vh auto 0 auto;
+    }
   }
 
   @media screen and (max-width: 993px) {
     .container-login {
       max-width: 80%;
-      margin: 5vh auto 0 auto;
-      
+      margin: 10vh auto 0 auto;
     }
 
     .explanation {
       margin: 10vh auto 0 auto;
+      display: none;
     }
   }
   @media screen and (max-width: 500px) {
     .title_row {
-        max-height: 50px;
-        margin: -10px 5px;
-        padding: 0px;
-        h1 {
-          font-size: 2.3rem;
-        }
+      max-height: 50px;
+      margin: -10px 5px;
+      padding: 0px;
+      display: none;
+      h1 {
+        font-size: 2.3rem;
       }
+    }
   }
-
 }
