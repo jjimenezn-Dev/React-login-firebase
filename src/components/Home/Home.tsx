@@ -24,6 +24,19 @@ const Home = observer((props: any, { match }: any) => {
   ]
   var columns: Array<Column<any>> = [
     {
+      Header: "Documento",
+      columns: [
+        {
+          Header: "Cedula",
+          accessor: "document_id",
+          filterable: false,
+          filterMethod: filter,
+          filterAll: true,
+          Cell: props => <span className="number">{props.value}</span>
+        },
+      ]
+    },
+    {
       Header: "Nombre Completo",
       columns: [
         {
